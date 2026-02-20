@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Han Danbinaerin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="notebook.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="images/Haegeum.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body class="notebook-body">
+  <script src="silk-background.js"></script>
+  <!-- 언어 전환 -->
+  <div class="lang-switch">
+    <a href="index.html" class="lang-toggle" aria-label="Switch language">
+      <i class="fa-solid fa-globe"></i><span class="lang-text">가/A</span>
+    </a>
+  </div>
+
+  <!-- 노트북 컨테이너 -->
+  <div class="notebook">
+    <!-- 왼쪽 사이드바 -->
+    <aside class="sidebar-nav">
+      <nav class="notebook-tabs">
+        <a href="index_ko.html" class="notebook-tab active" data-page="home">홈</a>
+        <a href="research.html" class="notebook-tab" data-page="research">연구</a>
+        <a href="education.html" class="notebook-tab" data-page="about">소개</a>
+        <a href="others.html" class="notebook-tab" data-page="experience">경력</a>
+        <a href="gallery.html" class="notebook-tab" data-page="gallery">갤러리</a>
+      </nav>
+    </aside>
+
+    <!-- 노트 페이지 -->
+    <div class="notebook-page">
+      <!-- 페이지 내용 -->
+      <div class="page-content">
+        <!-- Home 섹션 -->
+        <section id="cover">
+          <div class="note-header">
+            <h1>한단비내린</h1>
+            <div class="header-keywords">
+              <span>한국전통음악</span>
+              <span>음악정보검색</span>
+              <span>전산음악학</span>
+              <span>음악인공지능</span>
+            </div>
+          </div>
+          <div class="cover-body">
+            <div class="cover-content">
+              <p class="intro-text">저는 음악정보기술을 활용하여 국악의 구조와 표현을 연구하고 있습니다. 현재 카이스트 <strong>Music and Audio Computing Lab(MACLab)</strong> 박사과정에 재학 중이며, 남주한 교수님과 정다샘 교수님의 지도를 받고 있습니다.</p>
+              <p class="intro-text">특히 기존의 분석 방식으로는 충분히 포착하기 어려웠던 <strong>국악 고유의 어법과 유연한 표현력</strong>을 규명하는 데 집중합니다. 연주 경험에서 나온 직관과 데이터 기반 분석을 함께 활용해, 한국 음악의 가치를 오늘의 글로벌 음악 환경 속에서 새롭게 설명하고자 합니다.</p>
+              <p class="contact-email">✉ naerin71@kaist.ac.kr | danbinaerin@naver.com</p>
+            </div>
+            <div class="cover-media">
+              <div class="cover-image-wrapper">
+                <img src="images/figure.png" alt="표지 이미지" class="cover-image">
+              </div>
+              <div class="social-icons">
+                <a href="https://docs.google.com/document/d/1JQlFtoFbnxZKOq2Lw0hG3NLOCV1yea_OUEyrioB7Irc/edit?usp=sharing" class="icon" title="이력서" target="_blank"><i class="fa-solid fa-file"></i></a>
+                <a href="https://github.com/danbinaerinHan" class="icon" title="깃허브" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://scholar.google.com/citations?user=4aSo2GAAAAAJ&hl=ko" class="icon" title="구글 스칼라" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>
+                <a href="https://instagram.com/handanbinaerin" class="icon" title="인스타그램" target="_blank"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- News 섹션 -->
+        <section id="news">
+          <div class="news-header">
+            <h2>🤗 소식</h2>
+            <div class="year-toggle">
+              <button class="year-btn active" data-year="2026">2026</button>
+              <button class="year-btn" data-year="2025">2025</button>
+              <button class="year-btn" data-year="2024">2024</button>
+            </div>
+          </div>
+          <ul id="news-2026" class="exp-list">
+            <li class="exp-item">
+              <span class="exp-date">2026.01.01</span>
+              <div class="exp-body"><span class="exp-role">문화체육관광부 문화예술정책자문위원회 위원으로 위촉되었습니다. <a href="https://www.mcst.go.kr/site/s_notice/press/pressView.jsp?pSeq=22111">링크</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.11.14</span>
+              <div class="exp-body"><span class="exp-role"><strong>정악 데이터셋</strong>을 쉽게 접근하고 내려받을 수 있는 새 웹페이지를 개설했습니다: <a href="https://danbinaerinhan.github.io/Jeongganbo_dataset/">https://danbinaerinhan.github.io/Jeongganbo_dataset/</a></span></div>
+            </li>
+          </ul>
+          <ul id="news-2025" class="exp-list hidden">
+            <li class="exp-item">
+              <span class="exp-date">2025.02.11</span>
+              <div class="exp-body"><span class="exp-role">한국문화예술위원회 예술기술융합 창의인재교육 APE camp 청년 포럼 연구위원으로 위촉되었습니다.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.10.17</span>
+              <div class="exp-body"><span class="exp-role">2025 하반기 한국민요학회 학술대회에서 세션 발표 예정입니다.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.08.14</span>
+              <div class="exp-body"><span class="exp-role">🎉 "Motive-level Analysis of Form-Functions Association in Korean Folk Song"이 ISMIR 2025 LBD 세션에 개재 승인되었습니다. <a href="https://arxiv.org/pdf/2508.10472">링크</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.06.05</span>
+              <div class="exp-body"><span class="exp-role">국악의 날 기념 국악방송 특집 라디오 프로그램에 출연했습니다 <a href="https://www.igbf.kr/gugak_web/?sub_num=760&state=view&idx=265797">링크</a> <a href="https://igbf.kr/gugak_web/?sub_num=764&state=view&idx=265509">링크2</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.05.31</span>
+              <div class="exp-body"><span class="exp-role">한국음악교육학회 50주년 기념 학술대회에서 세션 발표하였습니다.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.04.18</span>
+              <div class="exp-body"><span class="exp-role">한국정보음악학회(KSMI)에서 포스터를 발표하였습니다.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.03.13</span>
+              <div class="exp-body"><span class="exp-role">UC San Diego MUSICAI 연구실에서 초청받아 국악생성에 관한 연구를 소개하였습니다. <a href="https://musaic.ucsd.edu/events/2025/3/13/musaic-seminar-han-danbinaerin">링크</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.01</span>
+              <div class="exp-body"><span class="exp-role">🎉 "정간보 음악 기보의 자동 인식을 위한 데이터셋과 접근법" 논문이 <em>ACM Journal on Computing and Cultural Heritage (JOCCH)</em>에 게재 승인되었습니다.</span></div>
+            </li>
+          </ul>
+          <ul id="news-2024" class="exp-list hidden">
+            <li class="exp-item">
+              <span class="exp-date">2024.10.15</span>
+              <div class="exp-body"><span class="exp-role">ISMIR 논문이 <strong>최우수 논문상</strong> 후보에 올랐습니다! 🏆</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.10.12</span>
+              <div class="exp-body"><span class="exp-role">🎉🎉🎉 "Towards Computational Analysis of Pansori Singing"이 ISMIR 2024 LBD 세션에 개재 승인되었습니다. <a href="https://ismir2024program.ismir.net/lbd_503.html">링크</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.07.22</span>
+              <div class="exp-body"><span class="exp-role">"정간보 음악 기보의 자동 인식을 위한 데이터셋과 접근법"이 사전 공개되었습니다. <a href="https://www.researchsquare.com/article/rs-4668854/v1">링크</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.06.21</span>
+              <div class="exp-body"><span class="exp-role">🎉🎉🎉 "Six Dragons Fly Again: Reviving 15th-Century Korean Court Music with Transformers and Novel Encoding"이 ISMIR 2024에 게재 승인되었습니다. <a href="https://sogang.ac.kr/ko/detail/545309">링크</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.06.02</span>
+              <div class="exp-body"><span class="exp-role">저희 연구진이 AI로 생성한 <em>치화평</em>과 <em>취풍형</em>이 2024년 6월 2일 국립국악원 풍류사랑방에서 연주되었습니다. <a href="https://www.donga.com/news/Culture/article/all/20240609/125342346/1">링크1</a> <a href="https://www.koya-culture.com/mobile/article.html?no=145751">링크2</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.05.14</span>
+              <div class="exp-body"><span class="exp-role">경복궁 세종대왕 탄신 기념 행사에서 <em>치화평</em>과 <em>취풍형</em>이 연주되었습니다. <a href="https://www.donga.com/news/Culture/article/all/20240513/124920100/1">링크1</a> <a href="https://creative.sogang.ac.kr/%ec%95%84%ed%8a%b8amp%ed%85%8c%ed%81%ac%eb%86%80%eb%a1%9c%ec%a7%80%ed%95%99%ea%b3%bc-%ec%a0%95%eb%8b%a4%ec%83%98-%ea%b5%90%ec%88%98-%ec%97%b0%ea%b5%ac%ed%8c%80_%ec%84%b8%ec%a2%85%eb%8c%80%ec%99%95/">링크2</a> <a href="https://www.segye.com/newsView/20240513504438?OutUrl=naver">링크3</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.03.01</span>
+              <div class="exp-body"><span class="exp-role">프랑크푸르트 막스플랑크 예술인지 연구소의 <a href="https://www.aesthetics.mpg.de/forschung/forschungsgruppe-computational-auditory-perception.html">Computational Auditory Perception</a> 그룹에서 발표했습니다.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.02.26</span>
+              <div class="exp-body"><span class="exp-role">KAIST 문화기술대학원 박사과정을 시작했습니다.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.01.22</span>
+              <div class="exp-body"><span class="exp-role">'2023 서강대학교 대학원생 우수논문 공모전'에서 <strong>우수논문상</strong>을 수상했습니다. <a href="https://www.sogang.ac.kr/front/boardview.do?pkid=541197&currentPage=1&searchField=ALL&siteGubun=1&menuGubun=1&bbsConfigFK=143&searchLowItem=ALL&searchValue=">링크1</a> <a href="http://creative.sogang.ac.kr/%EC%84%9D%EC%82%AC%EA%B3%BC%EC%A0%95-%ED%95%9C%EB%8B%A8%EB%B9%84%EB%82%B4%EB%A6%B0-%EB%B3%B8%EA%B5%90-%EC%A0%9C2%ED%9A%8C-%EB%8C%80%ED%95%99%EC%9B%90%EC%83%9D-%EC%9A%B0%EC%88%98%EB%85%BC%EB%AC%B8/">링크2</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.01.07</span>
+              <div class="exp-body"><span class="exp-role">🎉🎉🎉 석사 논문 심사를 통과하고 제출했습니다. 석사 졸업!!!</span></div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">COPYRIGHT © 2025 Danbinaerin Han</footer>
+
+  <script src="ui-block.js"></script>
+  <script src="script.js"></script>
+  <script src="danbi-cursor.js"></script>
+</body>
+</html>

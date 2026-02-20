@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Danbinaerin Han</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="notebook.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="images/Haegeum.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body class="notebook-body">
+  <script src="silk-background.js"></script>
+  <!-- 언어 전환 -->
+  <div class="lang-switch">
+    <a href="index_ko.html" class="lang-toggle" aria-label="Switch language">
+      <i class="fa-solid fa-globe"></i><span class="lang-text">가/A</span>
+    </a>
+  </div>
+
+  <!-- 노트북 컨테이너 -->
+  <div class="notebook">
+    <!-- 왼쪽 사이드바 -->
+    <aside class="sidebar-nav">
+      <nav class="notebook-tabs">
+        <a href="index.html" class="notebook-tab active" data-page="home">Home</a>
+        <a href="education.html" class="notebook-tab" data-page="about">About</a>
+        <a href="research.html" class="notebook-tab" data-page="research">Publications</a>
+        <a href="others.html" class="notebook-tab" data-page="experience">Experience</a>
+        <a href="gallery.html" class="notebook-tab" data-page="gallery">Gallery</a>
+      </nav>
+    </aside>
+
+    <!-- 노트 페이지 -->
+    <div class="notebook-page">
+      <!-- 페이지 내용 -->
+      <div class="page-content">
+        <!-- Home 섹션 -->
+        <section id="cover">
+          <div class="note-header">
+            <h1>Danbinaerin Han</h1>
+            <div class="header-keywords">
+              <span>Korean Traditional Music</span>
+              <span>Music Information Retrieval</span>
+              <span>Computational Musicology</span>
+              <span>Music AI</span>
+            </div>
+          </div>
+          <div class="cover-body">
+            <div class="cover-content">
+              <p class="intro-text"><strong>I am a Ph.D. student</strong> at the <strong>Music and Audio Computing Lab (MACLab)</strong>, advised by Prof. Juhan Nam.</p>
+              <p class="intro-text">My research applies <strong>Music Information Retrieval (MIR)</strong> and <strong>music AI</strong> to <strong>Gugak (Korean traditional music)</strong>, focusing on its unique idioms and expressive characteristics that are often overlooked in conventional analysis.</p>
+              <p class="intro-text">With over <strong>15 years</strong> of experience as a <strong>haegeum player</strong>, I combine performance-based musical intuition with data-driven analytical methods to investigate what constitutes the "Korean-ness" in our music.</p>
+              <p class="contact-email">✉ naerin71@kaist.ac.kr | danbinaerin@naver.com</p>
+            </div>
+            <div class="cover-media">
+            <div class="cover-image-wrapper">
+              <img src="images/figure.png" alt="Cover image" class="cover-image">
+            </div>
+            <div class="social-icons">
+              <a href="https://docs.google.com/document/d/1JQlFtoFbnxZKOq2Lw0hG3NLOCV1yea_OUEyrioB7Irc/edit?usp=sharing" class="icon" title="CV" target="_blank"><i class="fa-solid fa-file"></i></a>
+              <a href="https://github.com/danbinaerinHan" class="icon" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://scholar.google.com/citations?user=4aSo2GAAAAAJ&hl=ko" class="icon" title="Google Scholar" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>
+              <a href="https://instagram.com/handanbinaerin" class="icon" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </section>
+
+        <!-- News 섹션 -->
+        <section id="news">
+          <div class="news-header">
+            <h2>🤗 News</h2>
+            <div class="year-toggle">
+              <button class="year-btn active" data-year="2026">2026</button>
+              <button class="year-btn" data-year="2025">2025</button>
+              <button class="year-btn" data-year="2024">2024</button>
+            </div>
+          </div>
+          <ul id="news-2026" class="exp-list">
+            <li class="exp-item">
+              <span class="exp-date">2026.01.01</span>
+              <div class="exp-body"><span class="exp-role">Appointed as a member of the Cultural and Arts Policy Advisory Committee under the Ministry of Culture, Sports and Tourism, Republic of Korea. <a href="https://www.mcst.go.kr/site/s_notice/press/pressView.jsp?pSeq=22111">link</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2026.01.01</span>
+              <div class="exp-body"><span class="exp-role">A new webpage has been launched for easy access and download of the <strong>Jeong-ak Dataset</strong>: <a href="https://danbinaerinhan.github.io/Jeongganbo_dataset/">https://danbinaerinhan.github.io/Jeongganbo_dataset/</a></span></div>
+            </li>
+          </ul>
+          <ul id="news-2025" class="exp-list hidden">
+            <li class="exp-item">
+              <span class="exp-date">2025.02.11</span>
+              <div class="exp-body"><span class="exp-role">Appointed as a Youth Forum Research Fellow for the Arts and Technology Convergence Creative Talent Education (APE Camp), organized by the Arts Council Korea.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.10.17</span>
+              <div class="exp-body"><span class="exp-role">Session presentation scheduled at the Conference of the Society of the Korean Folk Song</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.08.14</span>
+              <div class="exp-body"><span class="exp-role">🎉 "Motive-level Analysis of Form-Functions Association in Korean Folk Song" has been accepted to the Late Breaking Demo (LBD) session at ISMIR 2025. <a href="https://arxiv.org/pdf/2508.10472">link</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.06.05</span>
+              <div class="exp-body"><span class="exp-role">Guest Appearance on a Special Radio Program for Gugak Day, Gugak FM <a href="https://www.igbf.kr/gugak_web/?sub_num=760&state=view&idx=265797">Link</a> <a href="https://igbf.kr/gugak_web/?sub_num=764&state=view&idx=265509">Link2</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.05.31</span>
+              <div class="exp-body"><span class="exp-role">Session presentation at the 50th Anniversary Conference of the Society of Korean Music Educators</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.04.18</span>
+              <div class="exp-body"><span class="exp-role">Poster presentation at the Korean Society of Music Informatics (KSMI)</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.03.13</span>
+              <div class="exp-body"><span class="exp-role">Invited talk at MUSAIC, UC San Diego (Remote)</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2025.01</span>
+              <div class="exp-body"><span class="exp-role">🎉 "On the automatic recognition of Jeongganbo music notation: dataset and approach" accepted to <em>ACM Journal on Computing and Cultural Heritage (JOCCH)</em></span></div>
+            </li>
+          </ul>
+          <ul id="news-2024" class="exp-list hidden">
+            <li class="exp-item">
+              <span class="exp-date">2024.10.15</span>
+              <div class="exp-body"><span class="exp-role">My ISMIR paper got nominated for <strong>Best Paper Award!</strong> 🏆</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.10.12</span>
+              <div class="exp-body"><span class="exp-role">🎉🎉🎉 "Towards Computational Analysis of Pansori Singing" has been accepted to the Late Breaking Demo (LBD) session at ISMIR 2024. <a href="https://ismir2024program.ismir.net/lbd_503.html">Link</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.07.22</span>
+              <div class="exp-body"><span class="exp-role">"On the Automatic Recognition of Jeongganbo Music Notation: Dataset and Approach" has been released as a preprint. <a href="https://www.researchsquare.com/article/rs-4668854/v1">Link</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.06.21</span>
+              <div class="exp-body"><span class="exp-role">🎉🎉🎉 "Six Dragons Fly Again: Reviving 15th-Century Korean Court Music with Transformers and Novel Encoding" was accepted to <a href="https://ismir2024.ismir.net/">ISMIR 2024</a> <a href="https://sogang.ac.kr/ko/detail/545309">Link</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.06.02</span>
+              <div class="exp-body"><span class="exp-role"><em>Chiwhapyeong</em> and <em>Chwipungnyeong</em> restored by AI were showcased at the National Gugak Center on June 2, 2024. <a href="https://www.donga.com/news/Culture/article/all/20240609/125342346/1">Link1</a> <a href="https://www.koya-culture.com/mobile/article.html?no=145751">Link2</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.05.14</span>
+              <div class="exp-body"><span class="exp-role">King Sejong's music <em>Chihwapyeong</em> and <em>Chwipunghyeong</em> were reconstructed and performed in a Sejong's birthday commemorative event at Gyeongbokgung <a href="https://www.donga.com/news/Culture/article/all/20240513/124920100/1">Link1</a> <a href="https://creative.sogang.ac.kr/%EC%95%84%ED%8A%B8amp%ED%85%8C%ED%81%AC%EB%86%80%EB%A1%9C%EC%A7%80%ED%95%99%EA%B3%BC-%EC%A0%95%EB%8B%A4%EC%83%98-%EA%B5%90%EC%88%98-%EC%97%B0%EA%B5%AD%ED%8C%80_%EC%84%B8%EC%A2%85%EB%8C%80%EC%99%95/">Link2</a> <a href="https://www.segye.com/newsView/20240513504438?OutUrl=naver">Link3</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.03.01</span>
+              <div class="exp-body"><span class="exp-role">I gave a presentation at the <a href="https://www.aesthetics.mpg.de/forschung/forschungsgruppe-computational-auditory-perception.html">"Computational Auditory Perception"</a> group at the <a href="https://www.aesthetics.mpg.de/">Max Planck Institute for Empirical Aesthetics</a> in Frankfurt.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.02.26</span>
+              <div class="exp-body"><span class="exp-role">I started my PhD program at the <a href="https://ct.kaist.ac.kr/">Graduate School of Culture Technology</a> at KAIST.</span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.01.22</span>
+              <div class="exp-body"><span class="exp-role">I received an award for <strong>outstanding paper</strong> at the '2023 Sogang University Graduate School Excellent Thesis Competition'. <a href="https://www.sogang.ac.kr/front/boardview.do?pkid=541197&currentPage=1&searchField=ALL&siteGubun=1&menuGubun=1&bbsConfigFK=143&searchLowItem=ALL&searchValue=">Link1</a> <a href="http://creative.sogang.ac.kr/%EC%84%9D%EC%82%AC%EA%B3%BC%EC%A0%95-%ED%95%9C%EB%8B%A8%EB%B9%84%EB%82%B4%EB%A6%B0-%EB%B3%B8%EA%B5%90-%EC%A0%9C2%ED%9A%8C-%EB%8C%80%ED%95%99%EC%9B%90%EC%83%9D-%EC%9A%B0%EC%88%98%EB%85%BC%EB%AC%B8/">Link2</a></span></div>
+            </li>
+            <li class="exp-item">
+              <span class="exp-date">2024.01.07</span>
+              <div class="exp-body"><span class="exp-role">🎉🎉🎉 I received approval from the review professors for my master's thesis and submitted it. It's my master's graduation!!!</span></div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">COPYRIGHT © 2025 Danbinaerin Han</footer>
+
+  <script src="ui-block.js"></script>
+  <script src="script.js"></script>
+  <script src="spa-nav.js"></script>
+  <script src="danbi-cursor.js"></script>
+</body>
+</html>

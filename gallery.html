@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery - Danbinaerin Han</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="notebook.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="images/Haegeum.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body class="notebook-body">
+  <script src="silk-background.js"></script>
+  <!-- 언어 전환 -->
+  <div class="lang-switch">
+    <a href="index_ko.html" class="lang-toggle" aria-label="Switch language">
+      <i class="fa-solid fa-globe"></i><span class="lang-text">가/A</span>
+    </a>
+  </div>
+
+  <!-- 노트북 컨테이너 -->
+  <div class="notebook">
+    <!-- 왼쪽 사이드바 -->
+    <aside class="sidebar-nav">
+      <nav class="notebook-tabs">
+        <a href="index.html" class="notebook-tab" data-page="home">Home</a>
+        <a href="education.html" class="notebook-tab" data-page="about">About</a>
+        <a href="research.html" class="notebook-tab" data-page="research">Publications</a>
+        <a href="others.html" class="notebook-tab" data-page="experience">Experience</a>
+        <a href="gallery.html" class="notebook-tab active" data-page="gallery">Gallery</a>
+      </nav>
+    </aside>
+
+    <!-- 노트 페이지 -->
+    <div class="notebook-page">
+      <!-- 페이지 내용 -->
+      <div class="page-content">
+        <section id="gallery">
+          <h2>Gallery</h2>
+          <div class="gallery-grid" id="gallery-grid"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">COPYRIGHT © 2025 Danbinaerin Han</footer>
+
+  <script src="ui-block.js"></script>
+  <script src="gallery_thumbnail.js"></script>
+  <script>
+    const renderGallery = (items) => {
+      const grid = document.getElementById('gallery-grid');
+      if (!grid || !Array.isArray(items)) {
+        return;
+      }
+      items.forEach((item) => {
+        const card = document.createElement('a');
+        card.className = 'gallery-card';
+        card.href = item.page;
+
+        const img = document.createElement('img');
+        img.src = item.thumbnail;
+        img.alt = item.title;
+
+        const title = document.createElement('div');
+        title.className = 'gallery-card-title';
+        title.textContent = item.title;
+
+        card.appendChild(img);
+        card.appendChild(title);
+        grid.appendChild(card);
+      });
+    };
+
+    fetch('gallery_thumbnail.json')
+      .then((response) => response.json())
+      .then((data) => {
+        renderGallery(data.items);
+      })
+      .catch(() => {
+        if (Array.isArray(window.galleryItems)) {
+          renderGallery(window.galleryItems);
+        }
+      });
+  </script>
+  <script src="spa-nav.js"></script>
+  <script src="danbi-cursor.js"></script>
+</body>
+</html>
