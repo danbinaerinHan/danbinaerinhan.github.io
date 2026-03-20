@@ -29,57 +29,12 @@ function applySceneTheme(key) {
 }
 
 // ═══════════════════════════════════════════════════
-// SCENE 1: 한지 (Hanji) — ink washes, motes, network, rain
+// SCENE 1: 한지 (Hanji) — CSS 배경만 사용, p5.js 캔버스는 투명
 // ═══════════════════════════════════════════════════
 SCENES.window = {
   name: '한지',
-  bg: null,
-
-  init: function(w, h) {
-    if (this.bg) this.bg.remove();
-    this.bg = createGraphics(w, h);
-    var g = this.bg;
-
-    // 한지 base — warm off-white gradient
-    for (var y = 0; y < h; y++) {
-      var t = y / h;
-      g.stroke(lerp(248, 240, t), lerp(244, 236, t), lerp(238, 228, t));
-      g.line(0, y, w, y);
-    }
-
-    // 한지 texture — fine scattered dots (paper fiber feel)
-    g.noStroke();
-    for (var i = 0; i < 600; i++) {
-      var px = random(w), py = random(h);
-      var pr = random(0.5, 1.5);
-      g.fill(random(200, 225), random(195, 215), random(185, 205), random(8, 18));
-      g.ellipse(px, py, pr);
-    }
-
-    // 수묵 번짐 — ink wash patches
-    g.noStroke();
-    var inkWashes = [
-      { col: [180, 178, 172], a: 12 },
-      { col: [185, 195, 185], a: 10 },
-      { col: [195, 190, 182], a: 11 },
-      { col: [175, 182, 178], a: 9 },
-      { col: [200, 195, 188], a: 10 }
-    ];
-    for (var i = 0; i < 6; i++) {
-      var ws = inkWashes[floor(random(inkWashes.length))];
-      var wx = random(-80, w + 80);
-      var wy = random(-40, h + 40);
-      var wr = random(180, 420);
-      for (var l = 0; l < 3; l++) {
-        g.fill(ws.col[0], ws.col[1], ws.col[2], ws.a * (1 - l * 0.3));
-        g.ellipse(wx + random(-25, 25), wy + random(-15, 15), wr * (1 + l * 0.35), wr * (0.55 + l * 0.2));
-      }
-    }
-  },
-
-  draw: function(w, h) {
-    image(this.bg, 0, 0);
-  }
+  init: function() {},
+  draw: function() { clear(); }
 };
 
 // ═══════════════════════════════════════════════════
@@ -563,7 +518,11 @@ function setup() {
 function draw() {
   try {
     lastDrawTime = Date.now();
-    background(252, 249, 242);
+    if (currentScene === 'window' && sceneState === 'idle') {
+      clear();
+    } else {
+      background(252, 249, 242);
+    }
     updateNotebookRect();
 
     if (sceneState === 'fade-out') {

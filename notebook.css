@@ -6,14 +6,22 @@
 /* Google Fonts - Spectral (제목) + Source Sans 3 (본문) */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap');
 
-/* 배경 - 한지 느낌 CSS 기본 배경 (p5.js 없이도 항상 표시) */
+/* 배경 - 한지 느낌 CSS 정적 배경 */
 .notebook-body {
-  background: linear-gradient(
-    180deg,
-    rgb(248, 244, 238) 0%,
-    rgb(244, 240, 232) 40%,
-    rgb(240, 236, 228) 100%
-  );
+  background:
+    /* 수묵 번짐 — 은은한 잉크워시 패치 */
+    radial-gradient(ellipse 420px 180px at 8% 15%, rgba(180, 178, 172, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 350px 200px at 85% 35%, rgba(185, 195, 185, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 300px 160px at 25% 75%, rgba(195, 190, 182, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 380px 150px at 70% 85%, rgba(175, 182, 178, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 280px 200px at 50% 50%, rgba(200, 195, 188, 0.04) 0%, transparent 70%),
+    /* 한지 기본 그라데이션 */
+    linear-gradient(
+      180deg,
+      rgb(248, 244, 238) 0%,
+      rgb(244, 240, 232) 40%,
+      rgb(240, 236, 228) 100%
+    );
   min-height: 100vh;
 }
 
