@@ -22,52 +22,69 @@
   display: none;
 }
 
-/* 전체 컨테이너 */
+/* 전체 컨테이너 — 사이드바 + 본문을 하나의 유리 패널로 */
 .notebook {
   position: relative;
   max-width: 1100px;
   min-height: calc(100vh - 80px);
   margin: 40px auto;
   display: flex;
-  gap: 40px;
-  padding: 0 20px;
+  gap: 0;
+  padding: 0 40px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
 }
 
 /* 정간보 페이지 영역 */
 .notebook-page {
   flex: 1;
-  background-color: rgba(253, 252, 250, 0.92);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 50px 60px 50px 60px;
-  border-radius: 2px;
-  border: 2px solid rgba(60, 50, 40, 0.2);
-  box-shadow:
-    2px 2px 8px rgba(0, 0, 0, 0.06),
-    0 0 1px rgba(0, 0, 0, 0.05);
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
   position: relative;
   min-height: calc(100vh - 160px);
 }
 
-/* 정간보 테두리 느낌 - 이중 테두리 */
+/* 편지지 이중선 테두리 — 바깥선(연) + 안쪽선(진) */
 .notebook-page::before {
   content: '';
   position: absolute;
-  left: 15px;
-  top: 15px;
-  right: 15px;
-  bottom: 15px;
-  border: 1px solid rgba(60, 50, 40, 0.15);
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  border: 0.5px solid rgba(160, 140, 110, 0.15);
   pointer-events: none;
 }
 
-/* 왼쪽 사이드바 컨테이너 */
+.notebook-page::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid rgba(160, 140, 110, 0.22);
+  pointer-events: none;
+}
+
+/* 왼쪽 사이드바 컨테이너 — 본문과 통합 */
 .sidebar-nav {
-  width: 140px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 50px 0 40px;
   flex-shrink: 0;
   min-height: calc(100vh - 160px);
+  border-right: 1px solid rgba(60, 50, 40, 0.08);
 }
 
 /* 네비게이션 탭 */
@@ -287,7 +304,7 @@
 ======================================== */
 @media (max-width: 1100px) {
   .notebook {
-    gap: 25px;
+    margin: 30px 15px;
   }
 
   .sidebar-nav {
@@ -318,12 +335,17 @@
     flex-direction: column;
     gap: 0;
     padding: 0;
+    border-radius: 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: none;
   }
 
   .sidebar-nav {
     width: 100%;
     min-height: auto;
     padding: 0;
+    border-right: none;
   }
 
   .notebook-page {
@@ -334,10 +356,6 @@
     background-image: none;
   }
 
-  .notebook-page::before {
-    display: none;
-  }
-
   .notebook-tabs {
     position: fixed;
     bottom: 0;
@@ -346,11 +364,13 @@
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
-    background: #3c3228;
+    background: rgba(60, 50, 40, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 12px 0;
     gap: 0;
     z-index: 1000;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
   }
 
   .notebook-tab {

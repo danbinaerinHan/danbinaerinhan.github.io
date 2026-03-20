@@ -24,7 +24,7 @@ function applySceneTheme(key) {
   // Show dandelion watermark only on 한지 scene
   var dandelion = document.getElementById('dandelion-decor');
   if (dandelion) {
-    dandelion.style.opacity = (key === 'window') ? '0.4' : '0';
+    dandelion.style.opacity = (key === 'window') ? '0.55' : '0';
   }
 }
 
@@ -519,7 +519,7 @@ function createSwitcherUI() {
   dandelion.id = 'dandelion-decor';
   dandelion.src = encodeURI('삼현육각.svg');
   dandelion.alt = '';
-  dandelion.style.cssText = 'position:fixed;bottom:-7vh;left:2vw;height:65vh;pointer-events:none;z-index:-1;opacity:' + (currentScene === 'window' ? '0.4' : '0') + ';transition:opacity .8s ease';
+  dandelion.style.cssText = 'position:fixed;bottom:-7vh;left:2vw;height:65vh;pointer-events:none;z-index:-1;mix-blend-mode:multiply;opacity:' + (currentScene === 'window' ? '0.55' : '0') + ';transition:opacity .8s ease';
   document.body.appendChild(dandelion);
 }
 
