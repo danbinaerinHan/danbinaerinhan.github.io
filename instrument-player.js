@@ -399,6 +399,10 @@
 
   // ── Initialize: find or create the trigger button ──
   function init() {
+    // ── Feature disabled pending audio permission ──
+    // To re-enable: remove the early return below
+    return;
+
     // Initialize mute states (all unmuted by default)
     INSTRUMENTS.forEach(function (inst) {
       muteState[inst.id] = false;
