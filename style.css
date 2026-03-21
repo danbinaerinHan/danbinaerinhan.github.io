@@ -697,3 +697,425 @@ img {
     height: 16px;
   }
 }
+
+/* ========================================
+   삼현육각 Special Tab Button
+======================================== */
+.special-play-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(140, 100, 60, 0.6);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+  text-align: left;
+  width: 100%;
+  margin-top: auto;
+}
+
+.special-play-btn:hover {
+  color: rgba(140, 80, 30, 0.9);
+  border-left-color: rgba(140, 80, 30, 0.4);
+  padding-left: 20px;
+}
+
+.special-play-btn .play-icon {
+  font-size: 0.65rem;
+}
+
+@media (max-width: 768px) {
+  .special-play-btn {
+    display: none;
+  }
+  .mobile-play-btn {
+    display: flex;
+    position: fixed;
+    bottom: 55px;
+    right: 12px;
+    z-index: 999;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(140, 100, 60, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(140, 100, 60, 0.2);
+    color: rgba(100, 70, 40, 0.7);
+    font-size: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .mobile-play-btn:hover {
+    background: rgba(140, 100, 60, 0.25);
+    color: #5a3a1a;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-play-btn {
+    display: none;
+  }
+}
+
+/* ========================================
+   Instrument Player Overlay
+======================================== */
+.ip-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  background: rgba(248, 244, 238, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.ip-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ip-container {
+  width: 90vw;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+}
+
+.ip-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: rgba(60, 50, 40, 0.4);
+  cursor: pointer;
+  line-height: 1;
+  padding: 8px;
+  transition: color 0.2s;
+}
+
+.ip-close-btn:hover {
+  color: #3c3228;
+}
+
+.ip-title {
+  font-family: "Spectral", "MaruBuri", serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #2a2520;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.ip-subtitle {
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.72rem;
+  color: rgba(60, 50, 40, 0.5);
+  margin: -12px 0 0;
+}
+
+/* SVG area with hotspots */
+.ip-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ip-svg-area {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1257 / 1280;
+}
+
+.ip-svg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+/* Instrument hotspot buttons */
+.ip-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid var(--inst-color, #8B4513);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.ip-hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.12);
+}
+
+.ip-hotspot.muted {
+  opacity: 0.35;
+  border-style: dashed;
+}
+
+.ip-hotspot.muted .ip-hotspot-ring {
+  animation: none;
+}
+
+.ip-hotspot-ring {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--inst-color, #8B4513);
+  opacity: 0;
+  animation: ip-pulse 2s ease-out infinite;
+}
+
+@keyframes ip-pulse {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.ip-hotspot-label {
+  font-family: "MaruBuri", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--inst-color, #3c3228);
+  white-space: nowrap;
+}
+
+/* Transport controls */
+.ip-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.ip-transport {
+  display: flex;
+  gap: 6px;
+}
+
+.ip-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(60, 50, 40, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  color: #3c3228;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  transition: all 0.2s;
+}
+
+.ip-btn:hover {
+  background: rgba(60, 50, 40, 0.08);
+  border-color: rgba(60, 50, 40, 0.4);
+}
+
+.ip-progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ip-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(60, 50, 40, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ip-progress-fill {
+  height: 100%;
+  background: rgba(140, 100, 60, 0.6);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.25s linear;
+}
+
+.ip-time {
+  font-family: "Source Sans 3", monospace;
+  font-size: 0.62rem;
+  color: rgba(60, 50, 40, 0.5);
+  white-space: nowrap;
+}
+
+/* Mixer strip */
+.ip-mixer {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.ip-channel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(60, 50, 40, 0.08);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.ip-channel-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ip-channel-name {
+  font-family: "MaruBuri", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #3c3228;
+}
+
+.ip-channel-name-en {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.6rem;
+  color: rgba(60, 50, 40, 0.4);
+}
+
+.ip-mute-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(60, 50, 40, 0.15);
+  background: transparent;
+  color: rgba(60, 50, 40, 0.3);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  transition: all 0.2s;
+}
+
+.ip-mute-btn.active {
+  color: #3c3228;
+  border-color: rgba(60, 50, 40, 0.3);
+}
+
+.ip-mute-btn:hover {
+  background: rgba(60, 50, 40, 0.06);
+}
+
+/* Loading bar */
+.ip-loading {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.ip-loading-text {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.72rem;
+  color: rgba(60, 50, 40, 0.5);
+  margin-bottom: 8px;
+}
+
+.ip-loading-bar {
+  height: 3px;
+  background: rgba(60, 50, 40, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ip-loading-fill {
+  height: 100%;
+  background: rgba(140, 100, 60, 0.5);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .ip-container {
+    padding: 20px 15px;
+    gap: 15px;
+  }
+
+  .ip-title {
+    font-size: 1rem;
+  }
+
+  .ip-svg-area {
+    max-width: 300px;
+  }
+
+  .ip-hotspot {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ip-hotspot-label {
+    font-size: 0.5rem;
+  }
+
+  .ip-mixer {
+    gap: 5px;
+  }
+
+  .ip-channel {
+    padding: 4px 8px;
+    gap: 4px;
+  }
+
+  .ip-channel-name {
+    font-size: 0.6rem;
+  }
+
+  .ip-channel-name-en {
+    display: none;
+  }
+}
