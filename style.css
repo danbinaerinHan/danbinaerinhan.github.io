@@ -162,6 +162,41 @@ img {
   background: rgba(100, 150, 255, 0.3) !important;
 }
 
+.copy-email {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.copy-email:hover,
+.copy-email:focus-visible {
+  color: rgba(140, 110, 75, 0.95);
+  outline: none;
+}
+
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2.4rem;
+  transform: translateX(-50%) translateY(12px);
+  background: rgba(60, 45, 30, 0.92);
+  color: #fdf6e8;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 20px rgba(60, 45, 30, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* ========================================
    News 섹션
 ======================================== */
