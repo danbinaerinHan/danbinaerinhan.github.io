@@ -1,0 +1,9 @@
+# Raw multitrack master recordings — kept local only.
+# The site serves XOR-scrambled, compressed versions under /audio instead,
+# so the original WAV stems are never published or downloadable.
+0411_민속악_대풍류/
+
+# Local tooling / scratch
+.claude/
+_preview_*.html
+_encode_audio.py

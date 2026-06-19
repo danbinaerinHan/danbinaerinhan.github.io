@@ -5,16 +5,30 @@
 (function () {
   'use strict';
 
-  var AUDIO_BASE = '0411_민속악_대풍류/0411_민속악_대풍류_multitrack/';
+  var AUDIO_BASE = 'audio/';
 
-  // Audio tracks (no 아쟁)
+  // Audio tracks (no 아쟁). Files are XOR-scrambled compressed audio (.bin);
+  // decoded in-memory at load time so the raw URL is not a usable download.
   var INSTRUMENTS = [
-    { id: 'piri',    name: '피리',  nameEn: 'Piri',    file: '0411_민속악_대풍류_피리.wav',  color: '#8B4513' },
-    { id: 'daegeum', name: '대금',  nameEn: 'Daegeum', file: '0411_민속악_대풍류_대금.wav',  color: '#2E8B57' },
-    { id: 'haegeum', name: '해금',  nameEn: 'Haegeum', file: '0411_민속악_대풍류_해금.wav',  color: '#8B0000' },
-    { id: 'janggu',  name: '장구',  nameEn: 'Janggu',  file: '0411_민속악_대풍류_장구.wav',  color: '#B8860B' },
-    { id: 'jwago',   name: '좌고',  nameEn: 'Jwago',   file: '0411_민속악_대풍류_좌고.wav',  color: '#556B2F' }
+    { id: 'piri',    name: '피리',  nameEn: 'Piri',    file: 's1.bin', color: '#8B4513' },
+    { id: 'daegeum', name: '대금',  nameEn: 'Daegeum', file: 's2.bin', color: '#2E8B57' },
+    { id: 'haegeum', name: '해금',  nameEn: 'Haegeum', file: 's3.bin', color: '#8B0000' },
+    { id: 'janggu',  name: '장구',  nameEn: 'Janggu',  file: 's4.bin', color: '#B8860B' },
+    { id: 'jwago',   name: '좌고',  nameEn: 'Jwago',   file: 's5.bin', color: '#556B2F' }
   ];
+
+  // XOR de-scramble key (must match the encoder used to produce the .bin files)
+  var AUDIO_KEY = [0x9c,0x4f,0x1a,0xe6,0xb2,0x7d,0x83,0x21,
+                   0x55,0xaa,0x0f,0xc3,0x6e,0x38,0xd1,0x7b];
+
+  function descramble(arrayBuffer) {
+    var bytes = new Uint8Array(arrayBuffer);
+    var klen = AUDIO_KEY.length;
+    for (var i = 0; i < bytes.length; i++) {
+      bytes[i] ^= AUDIO_KEY[i % klen];
+    }
+    return bytes.buffer;
+  }
 
   // Visual hotspots on SVG (two 피리 share same audio)
   // Layout matches the drawing:
@@ -72,7 +86,7 @@
           if (!res.ok) throw new Error('HTTP ' + res.status);
           return res.arrayBuffer();
         })
-        .then(function (buf) { return ctx.decodeAudioData(buf); })
+        .then(function (buf) { return ctx.decodeAudioData(descramble(buf)); })
         .then(function (decoded) {
           audioBuffers[inst.id] = decoded;
           loadingCount++;
@@ -399,10 +413,6 @@
 
   // ── Initialize: find or create the trigger button ──
   function init() {
-    // ── Feature disabled pending audio permission ──
-    // To re-enable: remove the early return below
-    return;
-
     // Initialize mute states (all unmuted by default)
     INSTRUMENTS.forEach(function (inst) {
       muteState[inst.id] = false;

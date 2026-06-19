@@ -759,10 +759,9 @@ img {
 
 /* ========================================
    삼현육각 Special Tab Button
-   (Feature disabled pending audio permission)
 ======================================== */
 .special-play-btn {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 6px;
   padding: 10px 16px;
@@ -796,7 +795,7 @@ img {
     display: none;
   }
   .mobile-play-btn {
-    display: none;
+    display: flex;
     position: fixed;
     bottom: 55px;
     right: 12px;
