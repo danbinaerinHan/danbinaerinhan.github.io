@@ -161,7 +161,7 @@
 
 .notebook-page h1 {
   font-family: "Spectral", "MaruBuri", serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.35rem, 1.05rem + 1.6vw, 1.6rem);
   font-weight: 500;
   color: #2a2520;
   letter-spacing: 0.01em;
@@ -171,7 +171,7 @@
 
 .notebook-page h2 {
   font-family: "Spectral", "MaruBuri", serif;
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 0.9rem + 0.55vw, 1.15rem);
   font-weight: 600;
   color: #2a2520;
   letter-spacing: 0.01em;
@@ -183,6 +183,23 @@
 
 .notebook-page h2:first-of-type {
   margin-top: 0;
+}
+
+/* 정간보(井間譜) 글리프 - 섹션 헤더 시그니처 */
+.jgb-glyph {
+  display: inline-grid;
+  grid-template-columns: repeat(2, 0.32em);
+  grid-auto-rows: 0.32em;
+  gap: 0.1em;
+  vertical-align: -0.06em;
+  margin-right: 0.5em;
+}
+.jgb-glyph i {
+  border: 1px solid var(--accent);
+  border-radius: 1px;
+}
+.jgb-glyph i.fill {
+  background: var(--accent);
 }
 
 /* 섹션 간 구분 */
