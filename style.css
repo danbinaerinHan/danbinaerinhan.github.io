@@ -946,12 +946,33 @@ img {
 }
 
 .ip-hotspot.muted {
-  opacity: 0.35;
+  opacity: 0.55;
   border-style: dashed;
+  border-color: rgba(70, 60, 50, 0.45);
+  background: rgba(232, 228, 220, 0.75);
+  filter: grayscale(0.85);
+}
+
+.ip-hotspot.muted .ip-hotspot-label {
+  color: rgba(70, 60, 50, 0.55);
 }
 
 .ip-hotspot.muted .ip-hotspot-ring {
   animation: none;
+}
+
+/* Diagonal slash = clearly "off/muted" */
+.ip-hotspot.muted::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80%;
+  height: 2.5px;
+  background: rgba(150, 55, 30, 0.8);
+  border-radius: 2px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  pointer-events: none;
 }
 
 .ip-hotspot-ring {
