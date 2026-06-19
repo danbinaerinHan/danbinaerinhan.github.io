@@ -191,7 +191,7 @@
   grid-template-columns: repeat(2, 0.32em);
   grid-auto-rows: 0.32em;
   gap: 0.1em;
-  vertical-align: -0.06em;
+  vertical-align: 0.14em;
   margin-right: 0.5em;
 }
 .jgb-glyph i {
