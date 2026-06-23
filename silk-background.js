@@ -33,9 +33,9 @@ function createDandelionDecor() {
     // SVG image — behind notebook content
     '#dandelion-decor{height:100%;mix-blend-mode:multiply;opacity:0.45;transition:opacity .5s ease,filter .5s ease;display:block}',
     '#dandelion-wrap:hover #dandelion-decor{opacity:0.8;filter:drop-shadow(0 0 15px rgba(140,100,60,0.3))}',
-    // Hover label
-    '#dandelion-label{position:absolute;bottom:12%;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:"Spectral","MaruBuri",serif;font-size:0.85rem;font-weight:500;color:rgba(60,50,40,0);letter-spacing:0.02em;transition:color .4s ease,transform .4s ease;pointer-events:none}',
-    '#dandelion-wrap:hover #dandelion-label{color:rgba(60,50,40,0.75);transform:translateX(-50%) translateY(-4px)}',
+    // Hover label — body-level so it floats above the notebook panel (never clipped)
+    '#dandelion-label{position:fixed;z-index:5;transform:translate(-50%,-50%);white-space:nowrap;font-family:"Spectral","MaruBuri",serif;font-size:0.85rem;font-weight:500;color:rgba(60,50,40,0.9);background:rgba(248,244,238,0.92);padding:5px 14px;border-radius:20px;box-shadow:0 2px 12px rgba(140,100,60,0.2);letter-spacing:0.02em;opacity:0;transition:opacity .35s ease;pointer-events:none}',
+    '#dandelion-label.visible{opacity:1}',
     // Notebook content stays above SVG, sidebar allows SVG clicks through
     '.notebook-page{position:relative;z-index:2}',
     '@media(max-width:768px){#dandelion-wrap{height:45vh;left:auto;right:-5vw;bottom:-5vh}#dandelion-label{font-size:0.65rem}}'
@@ -56,8 +56,24 @@ function createDandelionDecor() {
   label.textContent = 'Play the Korean Instruments!';
 
   wrap.appendChild(dandelion);
-  wrap.appendChild(label);
   document.body.appendChild(wrap);
+  document.body.appendChild(label);
+
+  // Show the label over the SVG on hover (label lives above the panel, so it is never clipped)
+  function positionLabel() {
+    var r = dandelion.getBoundingClientRect();
+    var cx = r.left + r.width / 2;
+    var cy = Math.min(r.top + r.height * 0.42, window.innerHeight - 36);
+    label.style.left = cx + 'px';
+    label.style.top = cy + 'px';
+  }
+  wrap.addEventListener('mouseenter', function () {
+    positionLabel();
+    label.classList.add('visible');
+  });
+  wrap.addEventListener('mouseleave', function () {
+    label.classList.remove('visible');
+  });
 }
 
 // ═══════════════════════════════════════════════════
