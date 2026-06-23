@@ -428,6 +428,22 @@
         openOverlay();
       }
     });
+
+    setupMobileReveal();
+  }
+
+  // ── Mobile: reveal the play button only when the page bottom is reached ──
+  function setupMobileReveal() {
+    var btn = document.getElementById('instrument-play-btn-mobile');
+    if (!btn) return;
+    function check() {
+      var scrolled = window.innerHeight + window.scrollY;
+      var nearBottom = scrolled >= document.documentElement.scrollHeight - 140;
+      btn.classList.toggle('revealed', nearBottom);
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    check();
   }
 
   // Run on DOMContentLoaded
