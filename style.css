@@ -864,6 +864,28 @@ img {
   position: relative;
 }
 
+/* Zoom-in: the 삼현육각 grows from the lower-left watermark to center */
+@keyframes ip-zoom-in {
+  from {
+    transform: translate(-30vw, 24vh) scale(0.28);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+.ip-overlay.visible .ip-container {
+  animation: ip-zoom-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ip-overlay.visible .ip-container {
+    animation: none;
+  }
+}
+
 .ip-close-btn {
   position: absolute;
   top: 0;
