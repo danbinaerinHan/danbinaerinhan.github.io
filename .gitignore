@@ -7,3 +7,4 @@
 .claude/
 _preview_*.html
 _encode_audio.py
+.DS_Store
