@@ -32,30 +32,8 @@
       img.addEventListener('dragstart', function (e) { e.preventDefault(); });
     });
 
-    // Year toggle buttons (index.html)
-    var yearButtons = document.querySelectorAll('.year-btn');
-    var newsLists = Array.from(document.querySelectorAll('[id^="news-"]'));
-    if (yearButtons.length && newsLists.length) {
-      var setActiveYear = function (year) {
-        yearButtons.forEach(function (b) { b.classList.remove('active'); });
-        newsLists.forEach(function (list) { list.classList.add('hidden'); });
-        var activeBtn = Array.from(yearButtons).find(function (b) {
-          return b.dataset.year === year;
-        });
-        var activeList = document.getElementById('news-' + year);
-        if (activeBtn) activeBtn.classList.add('active');
-        if (activeList) activeList.classList.remove('hidden');
-      };
-      yearButtons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          setActiveYear(btn.dataset.year);
-        });
-      });
-      var defaultBtn = Array.from(yearButtons).find(function (b) {
-        return b.classList.contains('active');
-      });
-      if (defaultBtn) setActiveYear(defaultBtn.dataset.year);
-    }
+    // News 섹션 렌더링 (index.html) — news.js가 정의
+    if (window.initNews) window.initNews();
 
 
     // Gallery rendering (gallery.html)

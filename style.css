@@ -22,8 +22,28 @@
    CSS 변수
 ======================================== */
 :root {
-  --text-dark: #1C2833;
-  --text-secondary: #566573;
+  /* 먹빛 잉크 스케일 — 사이트 전반의 따뜻한 갈색 먹색 */
+  --ink-900: #2a2520;
+  --ink-800: #3c3228;
+  --ink-700: #4a4035;
+  --ink-85: rgba(60, 50, 40, 0.85);
+  --ink-75: rgba(60, 50, 40, 0.75);
+  --ink-70: rgba(60, 50, 40, 0.7);
+  --ink-60: rgba(60, 50, 40, 0.6);
+  --ink-55: rgba(60, 50, 40, 0.55);
+  --ink-50: rgba(60, 50, 40, 0.5);
+  --ink-45: rgba(60, 50, 40, 0.45);
+  --ink-40: rgba(60, 50, 40, 0.4);
+  --ink-30: rgba(60, 50, 40, 0.3);
+  --ink-20: rgba(60, 50, 40, 0.2);
+  --hairline-strong: rgba(60, 50, 40, 0.15);
+  --hairline: rgba(60, 50, 40, 0.08);
+  --hairline-faint: rgba(60, 50, 40, 0.05);
+  /* 편지지 이중선 테두리 */
+  --border-letter: rgba(160, 140, 110, 0.22);
+  --border-letter-faint: rgba(160, 140, 110, 0.15);
+  --text-dark: var(--ink-900);
+  --text-secondary: var(--ink-60);
   --line-height: 31px;
   /* 강조색 - 해금 한복의 감빛(persimmon) 톤 */
   --accent: #b5512c;
@@ -69,7 +89,7 @@ img {
   padding: 4px 8px;
   border: none;
   background: transparent;
-  color: rgba(60, 50, 40, 0.4);
+  color: var(--ink-40);
   cursor: pointer;
   border-radius: 0;
   font-weight: 500;
@@ -86,7 +106,7 @@ img {
 
 .lang-switch a:hover,
 .lang-switch button:hover {
-  color: rgba(60, 50, 40, 0.75);
+  color: var(--ink-75);
 }
 
 .lang-switch .lang-text {
@@ -237,47 +257,202 @@ img {
 }
 
 #news .exp-role {
-  color: #3c3228;
+  color: var(--ink-800);
 }
 
+/* 연도 토글 — 정간(井間) 셀 스트립: 활성 연도는 채워진 정간 */
 .year-toggle {
   display: flex;
-  gap: 4px;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.year-toggle::-webkit-scrollbar {
+  display: none;
 }
 
 .year-toggle button {
-  padding: 4px 10px;
-  border: none;
+  padding: 4px 11px;
+  border: 1px solid var(--hairline-strong);
+  margin-left: -1px; /* 인접 셀 경계선 공유 (정간보 격자) */
   background: transparent;
-  color: rgba(60, 50, 40, 0.45);
+  color: var(--ink-45);
   cursor: pointer;
   border-radius: 0;
   font-weight: 500;
   font-family: "Source Sans 3", sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
   transition: all 0.2s ease;
   box-shadow: none;
-  position: relative;
+  flex-shrink: 0;
+}
+
+.year-toggle button:first-child {
+  margin-left: 0;
 }
 
 .year-toggle button:hover {
-  color: rgba(60, 50, 40, 0.7);
+  color: var(--ink-70);
+  background: var(--accent-soft);
 }
 
 .year-toggle button.active {
-  color: var(--accent);
+  color: #fdf6e8;
   font-weight: 600;
+  background: var(--accent);
+  border-color: var(--accent);
+  position: relative;
+  z-index: 1;
 }
 
-.year-toggle button.active::after {
-  content: "";
+/* ── 카테고리 텍스트 라벨 ── */
+.news-tag {
+  flex: 0 0 auto;
+  display: inline-block;
+  min-width: 3.6em;
+  margin: 4px 12px 0 0;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(181, 81, 44, 0.75);
+  user-select: none;
+}
+
+/* ── Featured 뉴스 카드 ── */
+.news-featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.news-card {
+  position: relative;
+  border: 1px solid var(--border-letter);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 14px 16px;
+}
+
+/* 편지지 이중선 테두리의 안쪽 선 */
+.news-card::after {
+  content: '';
   position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: -2px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 1px;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 0.5px solid var(--border-letter-faint);
+  pointer-events: none;
+}
+
+.news-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.news-card-top .news-tag {
+  margin: 0;
+  min-width: 0;
+}
+
+.news-card-date {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.64rem;
+  font-weight: 500;
+  color: var(--ink-45);
+  letter-spacing: 0.03em;
+}
+
+.notebook-page .news-card-title {
+  font-family: "Spectral", "MaruBuri", serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-900);
+  line-height: 1.45;
+  margin: 0 0 4px;
+}
+
+.notebook-page .news-card-body {
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.7rem;
+  color: var(--ink-60);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.news-card-links {
+  position: relative;
+  z-index: 1;
+  margin-top: 3px;
+}
+
+/* ── 컴팩트 뉴스 행 ── */
+.news-list .exp-item {
+  padding: 7px 0;
+}
+
+.news-item .exp-date {
+  padding-top: 3px;
+}
+
+.news-list .news-overflow {
+  display: none;
+}
+
+.news-year-panel.expanded .news-list .news-overflow {
+  display: flex;
+}
+
+/* ── 더 보기 토글 ── */
+.news-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--hairline-strong);
+  color: var(--ink-50);
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.news-more::after {
+  content: '↓';
+  display: inline-block;
+  font-size: 0.64rem;
+  transition: transform 0.2s ease;
+}
+
+.news-year-panel.expanded .news-more::after {
+  transform: rotate(180deg);
+}
+
+.news-more:hover {
+  color: var(--ink-800);
+  border-bottom-color: var(--ink-40);
+}
+
+@media (max-width: 640px) {
+  .news-featured {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  #news .exp-date {
+    flex: 0 0 70px;
+  }
 }
 
 /* ========================================
@@ -296,7 +471,7 @@ img {
   padding: 10px 0;
   border-radius: 0;
   border-left: none;
-  border-bottom: 1px solid rgba(60, 50, 40, 0.08);
+  border-bottom: 1px solid var(--hairline);
   box-shadow: none;
   position: relative;
 }
@@ -318,7 +493,7 @@ img {
   font-weight: 500;
   font-size: 0.82rem;
   line-height: 1.5;
-  color: #2a2520;
+  color: var(--ink-900);
   margin-bottom: 3px;
   font-family: "Source Sans 3", "MaruBuri", sans-serif;
 }
@@ -327,7 +502,7 @@ img {
   font-style: normal;
   font-size: 0.72rem;
   line-height: 1.4;
-  color: rgba(60, 50, 40, 0.55);
+  color: var(--ink-55);
   margin-bottom: 2px;
   font-family: "Source Sans 3", sans-serif;
 }
@@ -335,7 +510,7 @@ img {
 .paper-venue {
   font-size: 0.68rem;
   line-height: 1.4;
-  color: rgba(60, 50, 40, 0.45);
+  color: var(--ink-45);
   font-family: "Source Sans 3", sans-serif;
 }
 
@@ -350,9 +525,9 @@ img {
   margin-right: 4px;
   margin-top: 5px;
   padding: 1px 6px;
-  border: 1px solid rgba(60, 50, 40, 0.15);
+  border: 1px solid var(--hairline-strong);
   background: transparent;
-  color: rgba(60, 50, 40, 0.6);
+  color: var(--ink-60);
   border-radius: 1px;
   font-weight: 500;
   text-decoration: none;
@@ -366,8 +541,8 @@ img {
 
 .pdf-btn:hover {
   background: rgba(60, 50, 40, 0.06);
-  color: #3c3228;
-  border-color: rgba(60, 50, 40, 0.3);
+  color: var(--ink-800);
+  border-color: var(--ink-30);
   transform: none;
   box-shadow: none;
   text-decoration: none;
@@ -378,7 +553,7 @@ img {
 ======================================== */
 .edu-detail {
   font-size: 0.78rem;
-  color: rgba(60, 50, 40, 0.6);
+  color: var(--ink-60);
   line-height: 1.5;
   display: block;
   margin-top: 3px;
@@ -410,7 +585,7 @@ img {
 #services > h3 {
   font-size: 0.68rem;
   font-weight: 600;
-  color: rgba(60, 50, 40, 0.45);
+  color: var(--ink-45);
   margin: 0 0 0.8em;
   font-family: "Source Sans 3", sans-serif;
   text-transform: uppercase;
@@ -428,7 +603,7 @@ img {
   align-items: flex-start;
   gap: 0;
   padding: 5px 0;
-  border-bottom: 1px solid rgba(60, 50, 40, 0.05);
+  border-bottom: 1px solid var(--hairline-faint);
 }
 
 .exp-item:last-child {
@@ -440,7 +615,7 @@ img {
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
-  color: rgba(60, 50, 40, 0.45);
+  color: var(--ink-45);
   padding-top: 1px;
   white-space: nowrap;
 }
@@ -490,7 +665,7 @@ img {
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.72rem;
   font-weight: 400;
-  color: rgba(60, 50, 40, 0.6);
+  color: var(--ink-60);
   margin-top: 1px;
   overflow-wrap: break-word;
 }
@@ -500,7 +675,7 @@ img {
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.7rem;
   font-style: italic;
-  color: rgba(60, 50, 40, 0.45);
+  color: var(--ink-45);
   margin-top: 2px;
   line-height: 1.4;
 }
@@ -514,14 +689,14 @@ img {
   gap: 6px;
   padding: 6px 0;
   background: none;
-  color: rgba(60, 50, 40, 0.5) !important;
+  color: var(--ink-50) !important;
   font-size: 0.74rem;
   font-weight: 500;
   font-family: "Source Sans 3", "MaruBuri", sans-serif;
   text-decoration: none;
   border-radius: 0;
   box-shadow: none;
-  border-bottom: 1px solid rgba(60, 50, 40, 0.15);
+  border-bottom: 1px solid var(--hairline-strong);
   transition: all 0.2s ease;
 }
 
@@ -533,8 +708,8 @@ img {
 }
 
 .section-link:hover {
-  color: #3c3228 !important;
-  border-bottom-color: rgba(60, 50, 40, 0.4);
+  color: var(--ink-800) !important;
+  border-bottom-color: var(--ink-40);
   text-decoration: none;
   transform: none;
   box-shadow: none;
@@ -665,7 +840,7 @@ img {
   margin-top: 30px;
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.78rem;
-  color: rgba(60, 50, 40, 0.55);
+  color: var(--ink-55);
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -675,7 +850,7 @@ img {
 }
 
 .gallery-back:hover {
-  color: #3c3228;
+  color: var(--ink-800);
 }
 
 @media (max-width: 768px) {
@@ -901,7 +1076,7 @@ img {
   background: none;
   border: none;
   font-size: 1.6rem;
-  color: rgba(60, 50, 40, 0.4);
+  color: var(--ink-40);
   cursor: pointer;
   line-height: 1;
   padding: 8px;
@@ -909,14 +1084,14 @@ img {
 }
 
 .ip-close-btn:hover {
-  color: #3c3228;
+  color: var(--ink-800);
 }
 
 .ip-title {
   font-family: "Spectral", "MaruBuri", serif;
   font-size: 1.3rem;
   font-weight: 500;
-  color: #2a2520;
+  color: var(--ink-900);
   margin: 0;
   letter-spacing: 0.01em;
 }
@@ -924,7 +1099,7 @@ img {
 .ip-subtitle {
   font-family: "Source Sans 3", "MaruBuri", sans-serif;
   font-size: 0.72rem;
-  color: rgba(60, 50, 40, 0.5);
+  color: var(--ink-50);
   margin: -12px 0 0;
 }
 
@@ -1026,7 +1201,7 @@ img {
   font-family: "MaruBuri", sans-serif;
   font-size: 0.6rem;
   font-weight: 600;
-  color: var(--inst-color, #3c3228);
+  color: var(--inst-color, var(--ink-800));
   white-space: nowrap;
 }
 
@@ -1048,9 +1223,9 @@ img {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(60, 50, 40, 0.2);
+  border: 1px solid var(--ink-20);
   background: rgba(255, 255, 255, 0.7);
-  color: #3c3228;
+  color: var(--ink-800);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -1060,8 +1235,8 @@ img {
 }
 
 .ip-btn:hover {
-  background: rgba(60, 50, 40, 0.08);
-  border-color: rgba(60, 50, 40, 0.4);
+  background: var(--hairline);
+  border-color: var(--ink-40);
 }
 
 .ip-progress {
@@ -1090,7 +1265,7 @@ img {
 .ip-time {
   font-family: "Source Sans 3", monospace;
   font-size: 0.62rem;
-  color: rgba(60, 50, 40, 0.5);
+  color: var(--ink-50);
   white-space: nowrap;
 }
 
@@ -1110,7 +1285,7 @@ img {
   gap: 6px;
   padding: 6px 10px;
   background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(60, 50, 40, 0.08);
+  border: 1px solid var(--hairline);
   border-radius: 4px;
   transition: all 0.2s;
 }
@@ -1126,22 +1301,22 @@ img {
   font-family: "MaruBuri", sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
-  color: #3c3228;
+  color: var(--ink-800);
 }
 
 .ip-channel-name-en {
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.6rem;
-  color: rgba(60, 50, 40, 0.4);
+  color: var(--ink-40);
 }
 
 .ip-mute-btn {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(60, 50, 40, 0.15);
+  border: 1px solid var(--hairline-strong);
   background: transparent;
-  color: rgba(60, 50, 40, 0.3);
+  color: var(--ink-30);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -1151,8 +1326,8 @@ img {
 }
 
 .ip-mute-btn.active {
-  color: #3c3228;
-  border-color: rgba(60, 50, 40, 0.3);
+  color: var(--ink-800);
+  border-color: var(--ink-30);
 }
 
 .ip-mute-btn:hover {
@@ -1169,13 +1344,13 @@ img {
 .ip-loading-text {
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.72rem;
-  color: rgba(60, 50, 40, 0.5);
+  color: var(--ink-50);
   margin-bottom: 8px;
 }
 
 .ip-loading-bar {
   height: 3px;
-  background: rgba(60, 50, 40, 0.08);
+  background: var(--hairline);
   border-radius: 2px;
   overflow: hidden;
 }
