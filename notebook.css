@@ -260,32 +260,47 @@
   max-width: 46em;
 }
 
-/* 사진 아래 소셜 아이콘 */
-.cover-media .social-icons {
-  margin-top: 10px;
+/* 프로필 링크 — 라벨 달린 알약형 버튼 (연락처 아래) */
+.profile-links {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   gap: 8px;
+  margin-top: 1.1em;
 }
 
-.cover-media .social-icons .icon {
+.notebook-page .profile-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(80, 60, 40, 0.08);
-  color: #5a4a3a;
-  font-size: 0.75rem;
-  transition: all 0.2s ease;
+  gap: 7px;
+  padding: 6px 14px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 999px;
+  color: var(--ink-70);
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   text-decoration: none;
+  background: transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
-.cover-media .social-icons .icon:hover {
-  background: rgba(80, 60, 40, 0.12);
-  color: var(--ink-800);
-  transform: translateY(-2px);
+.notebook-page .profile-link i {
+  font-size: 0.82rem;
+  color: var(--ink-55);
+  transition: color 0.2s ease;
+}
+
+.notebook-page .profile-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.notebook-page .profile-link:hover i {
+  color: var(--accent);
 }
 
 .notebook-page a {

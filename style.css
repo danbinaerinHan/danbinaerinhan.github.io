@@ -995,6 +995,10 @@ img {
   .header-keywords {
     justify-content: center;
   }
+
+  .profile-links {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1489,15 +1493,6 @@ img {
   text-decoration-color: rgba(205, 180, 140, 0.4);
 }
 
-:root[data-theme="dark"] .cover-media .social-icons .icon {
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--ink-60);
-}
-
-:root[data-theme="dark"] .cover-media .social-icons .icon:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--ink-900);
-}
 
 :root[data-theme="dark"] .notebook-tab:hover {
   border-left-color: rgba(235, 227, 210, 0.3);
