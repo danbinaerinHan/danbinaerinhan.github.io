@@ -1542,15 +1542,21 @@ img {
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* 삼현육각 선화(線畫) — 어두운 배경에선 밝은 선으로 반전 */
+/* 삼현육각 선화(線畫) — 어두운 배경에선 따뜻한 아이보리 선으로 반전 */
 :root[data-theme="dark"] .ip-svg-img,
 :root[data-theme="dark"] #dandelion-decor {
-  mix-blend-mode: screen;
-  filter: invert(0.88) sepia(0.15);
+  mix-blend-mode: normal;
+  filter: invert(0.9) sepia(0.5) saturate(1.6) brightness(1.05) hue-rotate(-8deg);
 }
 
+/* 악기 플레이어 다이어그램 — 뚜렷하게 */
+:root[data-theme="dark"] .ip-svg-img {
+  opacity: 0.92;
+}
+
+/* 배경 워터마크 — 은은하게 */
 :root[data-theme="dark"] #dandelion-decor {
-  opacity: 0.3;
+  opacity: 0.22;
 }
 
 :root[data-theme="dark"] #dandelion-label {
