@@ -13,7 +13,7 @@
     appointment: { short: { en: 'appt',  ko: '위촉' },   full: { en: 'Appointment', ko: '위촉' } },
     milestone:   { short: { en: 'note',  ko: '소식' },   full: { en: 'Milestone',   ko: '소식' } }
   };
-  var COMPACT_VISIBLE = 5; // 연도당 기본 표시되는 컴팩트 항목 수
+  var COMPACT_VISIBLE = 3; // 연도당 기본 표시되는 컴팩트 항목 수
 
   function pageLang() {
     var lang = (document.documentElement.lang || 'en').slice(0, 2);
@@ -63,17 +63,18 @@
     top.appendChild(date);
     card.appendChild(top);
 
+    // 제목이 카드의 전부 — 본문(en/ko)은 제목이 없을 때만 대신 표시
     if (item.title && item.title[lang]) {
       var title = document.createElement('h3');
       title.className = 'news-card-title';
       title.textContent = item.title[lang];
       card.appendChild(title);
+    } else {
+      var body = document.createElement('p');
+      body.className = 'news-card-body';
+      body.innerHTML = item[lang] || item.en;
+      card.appendChild(body);
     }
-
-    var body = document.createElement('p');
-    body.className = 'news-card-body';
-    body.innerHTML = item[lang] || item.en;
-    card.appendChild(body);
 
     var chips = makeLinkChips(item, lang);
     if (chips) card.appendChild(chips);
