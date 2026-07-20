@@ -123,10 +123,12 @@
     toggle.innerHTML = '';
     container.innerHTML = '';
 
+    var blocks = {};
     years.forEach(function (year, i) {
       var block = document.createElement('section');
       block.className = 'news-year';
       block.id = 'news-year-' + year;
+      if (i !== 0) block.classList.add('hidden');
 
       var header = document.createElement('header');
       header.className = 'news-year-header';
@@ -141,8 +143,9 @@
       byYear[year].forEach(function (it) { list.appendChild(makeNode(it, lang)); });
       block.appendChild(list);
       container.appendChild(block);
+      blocks[year] = block;
 
-      // 연도 점프 내비 (정간 셀)
+      // 연도 토글 (정간 셀) — 선택한 연도만 표시
       var btn = document.createElement('button');
       btn.className = 'year-btn' + (i === 0 ? ' active' : '');
       btn.dataset.year = year;
@@ -150,15 +153,14 @@
       btn.addEventListener('click', function () {
         toggle.querySelectorAll('.year-btn').forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        var before = window.scrollY;
-        block.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // smooth 미지원/비활성 환경 폴백: 움직임이 없으면 즉시 이동
-        setTimeout(function () {
-          if (Math.abs(window.scrollY - before) < 2 &&
-              Math.abs(block.getBoundingClientRect().top) > 40) {
-            block.scrollIntoView({ behavior: 'instant', block: 'start' });
-          }
-        }, 350);
+        Object.keys(blocks).forEach(function (y) {
+          blocks[y].classList.toggle('hidden', y !== year);
+        });
+        // 숨김 상태로 관찰되던 노드는 IO가 다시 발화하지 않을 수 있어
+        // 전환 시 스태거로 직접 등장시킨다
+        block.querySelectorAll('.news-node.reveal:not(.in-view)').forEach(function (node, idx) {
+          setTimeout(function () { node.classList.add('in-view'); }, 40 * idx);
+        });
       });
       toggle.appendChild(btn);
     });
