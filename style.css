@@ -80,17 +80,17 @@
   --hairline-faint: rgba(235, 227, 210, 0.06);
   --border-letter: rgba(205, 180, 140, 0.28);
   --border-letter-faint: rgba(205, 180, 140, 0.16);
-  --panel-bg: rgba(30, 25, 21, 0.72);
-  --panel-border: rgba(255, 255, 255, 0.05);
-  --panel-bg-soft: rgba(24, 20, 17, 0.6);
-  --card-bg: rgba(255, 255, 255, 0.04);
-  --overlay-bg: rgba(22, 18, 15, 0.97);
+  --panel-bg: rgba(48, 41, 33, 0.7);
+  --panel-border: rgba(255, 255, 255, 0.06);
+  --panel-bg-soft: rgba(42, 36, 29, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --overlay-bg: rgba(38, 32, 25, 0.97);
   /* 감빛은 어두운 종이 위에서 한 단계 밝게 */
-  --accent: #d26a3f;
-  --accent-deep: #e08055;
-  --accent-soft: rgba(210, 106, 63, 0.16);
+  --accent: #d97444;
+  --accent-deep: #e88a5c;
+  --accent-soft: rgba(217, 116, 68, 0.16);
   color-scheme: dark;
-  background: #1b1713; /* 캔버스 (모바일 포함) */
+  background: #2b251d; /* 캔버스 (모바일 포함) */
 }
 
 /* ========================================
