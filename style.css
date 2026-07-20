@@ -1,6 +1,3 @@
-/* Pretendard — 모던 한글 본문 서체 (가변, 동적 서브셋) */
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
-
 @font-face {
   font-family: 'MaruBuri';
   src: url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2') format('woff2'),
@@ -61,13 +58,13 @@ html {
 }
 
 body {
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   background-color: transparent;
   margin: 0;
   color: var(--text-secondary);
   font-weight: 400;
   line-height: var(--line-height);
-  letter-spacing: 0;
+  letter-spacing: 0.01em;
 }
 
 img {
@@ -101,7 +98,7 @@ img {
   font-size: 0.72rem;
   gap: 5px;
   transition: all 0.2s ease;
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   letter-spacing: 0.02em;
 }
 
@@ -178,7 +175,7 @@ img {
   display: block;
   margin-top: 1.2em;
   font-size: 0.7rem;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif !important;
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif !important;
   letter-spacing: 0.01em;
 }
 
@@ -217,7 +214,7 @@ img {
   padding: 0.55rem 1.1rem;
   border-radius: 999px;
   font-size: 0.78rem;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 0.02em;
   box-shadow: 0 6px 20px rgba(60, 45, 30, 0.18);
   opacity: 0;
@@ -269,7 +266,7 @@ img {
   cursor: pointer;
   border-radius: 0;
   font-weight: 500;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.68rem;
   letter-spacing: 0.03em;
   transition: all 0.2s ease;
@@ -301,7 +298,7 @@ img {
   display: inline-block;
   min-width: 3.6em;
   margin: 4px 12px 0 0;
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   font-size: 0.56rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -398,7 +395,7 @@ img {
 }
 
 .news-node-date {
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   color: var(--ink-45);
@@ -417,7 +414,7 @@ img {
 }
 
 .notebook-page .news-node-text {
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   font-size: 0.74rem;
   line-height: 1.65;
   color: var(--ink-70);
@@ -468,7 +465,7 @@ img {
 }
 
 .notebook-page .news-card-body {
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   font-size: 0.7rem;
   color: var(--ink-60);
   line-height: 1.55;
@@ -562,7 +559,7 @@ img {
   line-height: 1.5;
   color: var(--ink-900);
   margin-bottom: 3px;
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
 }
 
 .paper-authors {
@@ -571,14 +568,14 @@ img {
   line-height: 1.4;
   color: var(--ink-55);
   margin-bottom: 2px;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
 }
 
 .paper-venue {
   font-size: 0.68rem;
   line-height: 1.4;
   color: var(--ink-45);
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
 }
 
 .paper-venue strong {
@@ -599,7 +596,7 @@ img {
   font-weight: 500;
   text-decoration: none;
   font-size: 0.62rem;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   letter-spacing: 0.03em;
   text-transform: lowercase;
   transition: all 0.2s ease;
@@ -624,7 +621,7 @@ img {
   line-height: 1.5;
   display: block;
   margin-top: 3px;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .edu-detail a {
@@ -654,7 +651,7 @@ img {
   font-weight: 600;
   color: var(--ink-45);
   margin: 0 0 0.8em;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -679,7 +676,7 @@ img {
 
 .exp-date {
   flex: 0 0 120px;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   color: var(--ink-45);
@@ -694,7 +691,7 @@ img {
 
 .exp-org {
   display: block;
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-dark);
@@ -729,7 +726,7 @@ img {
 
 .exp-role {
   display: block;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.72rem;
   font-weight: 400;
   color: var(--ink-60);
@@ -739,7 +736,7 @@ img {
 
 .exp-desc {
   display: block;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.7rem;
   font-style: italic;
   color: var(--ink-45);
@@ -759,7 +756,7 @@ img {
   color: var(--ink-50) !important;
   font-size: 0.74rem;
   font-weight: 500;
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   text-decoration: none;
   border-radius: 0;
   box-shadow: none;
@@ -835,7 +832,7 @@ img {
   font-weight: 600;
   color: var(--ink-800);
   font-size: 0.72rem;
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   letter-spacing: 0.01em;
   text-align: center;
 }
@@ -873,7 +870,7 @@ img {
   align-items: center;
   gap: 6px;
   margin-top: 30px;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.78rem;
   color: var(--ink-55);
   text-decoration: none;
@@ -901,7 +898,7 @@ img {
 .footer {
   text-align: center;
   font-size: 0.68rem;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   color: var(--text-secondary);
   padding: 16px 0 24px;
 }
@@ -974,7 +971,7 @@ img {
   background: transparent;
   border: none;
   border-left: 2px solid transparent;
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   color: rgba(140, 100, 60, 0.6);
@@ -1127,7 +1124,7 @@ img {
 }
 
 .ip-subtitle {
-  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
   font-size: 0.72rem;
   color: var(--ink-50);
   margin: -12px 0 0;
@@ -1293,7 +1290,7 @@ img {
 }
 
 .ip-time {
-  font-family: "Pretendard Variable", Pretendard, monospace;
+  font-family: "Source Sans 3", monospace;
   font-size: 0.62rem;
   color: var(--ink-50);
   white-space: nowrap;
@@ -1335,7 +1332,7 @@ img {
 }
 
 .ip-channel-name-en {
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.6rem;
   color: var(--ink-40);
 }
@@ -1372,7 +1369,7 @@ img {
 }
 
 .ip-loading-text {
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 0.72rem;
   color: var(--ink-50);
   margin-bottom: 8px;
