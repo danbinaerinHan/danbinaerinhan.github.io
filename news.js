@@ -1,7 +1,9 @@
 // ═══════════════════════════════════════════════════
 // News 렌더링 — news-data.js(window.NEWS_ITEMS) 단일 소스에서
 // EN/KO 페이지 양쪽의 소식 섹션을 그린다.
-// 연도 토글(정간 셀) + featured 카드 + 낙관 도장 + 더 보기 포함.
+// 에디토리얼 타임라인: 연도별 큰 숫자 구획 + 먹선 스파인 위에
+// 소식 노드가 매달리는 세로 흐름. featured는 카드로 확대.
+// 연도 버튼은 탭이 아니라 해당 연도로 점프하는 내비.
 // spa-nav.js가 콘텐츠 교체 후 window.initNews()를 다시 호출한다.
 // ═══════════════════════════════════════════════════
 (function () {
@@ -13,15 +15,15 @@
     appointment: { short: { en: 'appt',  ko: '위촉' },   full: { en: 'Appointment', ko: '위촉' } },
     milestone:   { short: { en: 'note',  ko: '소식' },   full: { en: 'Milestone',   ko: '소식' } }
   };
-  var COMPACT_VISIBLE = 3; // 연도당 기본 표시되는 컴팩트 항목 수
 
   function pageLang() {
     var lang = (document.documentElement.lang || 'en').slice(0, 2);
     return lang === 'ko' ? 'ko' : 'en';
   }
 
-  function formatDate(date) {
-    return date.replace(/-/g, '.');
+  // "2026-07-10" → "07.10", "2025-01" → "01" (연도는 구획 헤더가 담당)
+  function shortDate(date) {
+    return date.slice(5).replace(/-/g, '.') || date;
   }
 
   function makeTag(item, lang) {
@@ -50,100 +52,51 @@
     return wrap;
   }
 
-  function makeFeaturedCard(item, lang) {
-    var card = document.createElement('article');
-    card.className = 'news-card';
-
-    var top = document.createElement('div');
-    top.className = 'news-card-top';
-    top.appendChild(makeTag(item, lang));
-    var date = document.createElement('span');
-    date.className = 'news-card-date';
-    date.textContent = formatDate(item.date);
-    top.appendChild(date);
-    card.appendChild(top);
-
-    // 제목이 카드의 전부 — 본문(en/ko)은 제목이 없을 때만 대신 표시
-    if (item.title && item.title[lang]) {
-      var title = document.createElement('h3');
-      title.className = 'news-card-title';
-      title.textContent = item.title[lang];
-      card.appendChild(title);
-    } else {
-      var body = document.createElement('p');
-      body.className = 'news-card-body';
-      body.innerHTML = item[lang] || item.en;
-      card.appendChild(body);
-    }
-
-    var chips = makeLinkChips(item, lang);
-    if (chips) card.appendChild(chips);
-    return card;
-  }
-
-  function makeCompactItem(item, lang, hidden) {
+  function makeNode(item, lang) {
     var li = document.createElement('li');
-    li.className = 'exp-item news-item' + (hidden ? ' news-overflow' : '');
-    var date = document.createElement('span');
-    date.className = 'exp-date';
-    date.textContent = formatDate(item.date);
-    li.appendChild(date);
-    li.appendChild(makeTag(item, lang));
-    var bodyWrap = document.createElement('div');
-    bodyWrap.className = 'exp-body';
-    var role = document.createElement('span');
-    role.className = 'exp-role';
-    role.innerHTML = item[lang] || item.en;
-    bodyWrap.appendChild(role);
-    li.appendChild(bodyWrap);
+    li.className = 'news-node' + (item.featured ? ' news-node--featured' : '');
+
+    var meta = document.createElement('div');
+    meta.className = 'news-node-meta';
+    var time = document.createElement('time');
+    time.className = 'news-node-date';
+    time.dateTime = item.date;
+    time.textContent = shortDate(item.date);
+    time.title = item.date.replace(/-/g, '.');
+    meta.appendChild(time);
+    meta.appendChild(makeTag(item, lang));
+    li.appendChild(meta);
+
+    var body = document.createElement('div');
+    body.className = 'news-node-body';
+
+    if (item.featured) {
+      var card = document.createElement('article');
+      card.className = 'news-card';
+      if (item.title && item.title[lang]) {
+        var title = document.createElement('h3');
+        title.className = 'news-card-title';
+        title.textContent = item.title[lang];
+        card.appendChild(title);
+      }
+      var cardBody = document.createElement('p');
+      cardBody.className = 'news-card-body';
+      cardBody.innerHTML = item[lang] || item.en;
+      card.appendChild(cardBody);
+      var chips = makeLinkChips(item, lang);
+      if (chips) card.appendChild(chips);
+      body.appendChild(card);
+    } else {
+      var text = document.createElement('p');
+      text.className = 'news-node-text';
+      text.innerHTML = item[lang] || item.en;
+      body.appendChild(text);
+      var extraChips = makeLinkChips(item, lang);
+      if (extraChips) body.appendChild(extraChips);
+    }
+
+    li.appendChild(body);
     return li;
-  }
-
-  function makeYearPanel(year, items, lang) {
-    var panel = document.createElement('div');
-    panel.className = 'news-year-panel';
-    panel.dataset.year = year;
-
-    var featured = items.filter(function (it) { return it.featured; });
-    var compact = items.filter(function (it) { return !it.featured; });
-
-    if (featured.length) {
-      var grid = document.createElement('div');
-      grid.className = 'news-featured';
-      featured.forEach(function (it) { grid.appendChild(makeFeaturedCard(it, lang)); });
-      panel.appendChild(grid);
-    }
-
-    if (compact.length) {
-      var list = document.createElement('ul');
-      list.className = 'exp-list news-list';
-      compact.forEach(function (it, i) {
-        list.appendChild(makeCompactItem(it, lang, i >= COMPACT_VISIBLE));
-      });
-      panel.appendChild(list);
-    }
-
-    if (compact.length > COMPACT_VISIBLE) {
-      var more = document.createElement('button');
-      more.className = 'news-more';
-      more.type = 'button';
-      var setLabel = function () {
-        var expanded = panel.classList.contains('expanded');
-        if (lang === 'ko') {
-          more.textContent = expanded ? '접기' : year + ' 소식 모두 보기 (' + compact.length + ')';
-        } else {
-          more.textContent = expanded ? 'Show less' : 'Show all ' + year + ' (' + compact.length + ')';
-        }
-        more.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      };
-      more.addEventListener('click', function () {
-        panel.classList.toggle('expanded');
-        setLabel();
-      });
-      setLabel();
-      panel.appendChild(more);
-    }
-    return panel;
   }
 
   window.initNews = function () {
@@ -170,8 +123,26 @@
     toggle.innerHTML = '';
     container.innerHTML = '';
 
-    var panels = {};
     years.forEach(function (year, i) {
+      var block = document.createElement('section');
+      block.className = 'news-year';
+      block.id = 'news-year-' + year;
+
+      var header = document.createElement('header');
+      header.className = 'news-year-header';
+      var num = document.createElement('span');
+      num.className = 'news-year-num';
+      num.textContent = year;
+      header.appendChild(num);
+      block.appendChild(header);
+
+      var list = document.createElement('ol');
+      list.className = 'news-timeline';
+      byYear[year].forEach(function (it) { list.appendChild(makeNode(it, lang)); });
+      block.appendChild(list);
+      container.appendChild(block);
+
+      // 연도 점프 내비 (정간 셀)
       var btn = document.createElement('button');
       btn.className = 'year-btn' + (i === 0 ? ' active' : '');
       btn.dataset.year = year;
@@ -179,17 +150,34 @@
       btn.addEventListener('click', function () {
         toggle.querySelectorAll('.year-btn').forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        Object.keys(panels).forEach(function (y) {
-          panels[y].classList.toggle('hidden', y !== year);
-        });
+        var before = window.scrollY;
+        block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // smooth 미지원/비활성 환경 폴백: 움직임이 없으면 즉시 이동
+        setTimeout(function () {
+          if (Math.abs(window.scrollY - before) < 2 &&
+              Math.abs(block.getBoundingClientRect().top) > 40) {
+            block.scrollIntoView({ behavior: 'instant', block: 'start' });
+          }
+        }, 350);
       });
       toggle.appendChild(btn);
-
-      var panel = makeYearPanel(year, byYear[year], lang);
-      if (i !== 0) panel.classList.add('hidden');
-      panels[year] = panel;
-      container.appendChild(panel);
     });
+
+    // 스크롤 등장 모션 — reduced-motion에서는 CSS가 비활성화
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      container.querySelectorAll('.news-node').forEach(function (node) {
+        node.classList.add('reveal');
+        io.observe(node);
+      });
+    }
   };
 
   document.addEventListener('DOMContentLoaded', function () {

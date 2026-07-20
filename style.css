@@ -247,19 +247,6 @@ img {
   padding-bottom: 0;
 }
 
-#news .exp-list {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-#news .exp-date {
-  flex: 0 0 80px;
-}
-
-#news .exp-role {
-  color: var(--ink-800);
-}
-
 /* 연도 토글 — 정간(井間) 셀 스트립: 활성 연도는 채워진 정간 */
 .year-toggle {
   display: flex;
@@ -322,19 +309,140 @@ img {
   user-select: none;
 }
 
-/* ── Featured 뉴스 카드 ── */
-.news-featured {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
-  margin-bottom: 16px;
+/* ── 연도 구획 — 에디토리얼 연도 타이포 ── */
+.news-year {
+  margin-bottom: 3em;
+  scroll-margin-top: 24px;
 }
 
+.news-year:last-child {
+  margin-bottom: 0;
+}
+
+.news-year-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 1.2em;
+}
+
+.news-year-num {
+  font-family: "Spectral", "MaruBuri", serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--ink-30);
+}
+
+.news-year-header::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--hairline);
+  transform: translateY(-0.35em);
+}
+
+/* ── 타임라인 — 먹선 스파인과 노드 ── */
+.news-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.news-timeline::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 91px;
+  width: 1px;
+  background: var(--hairline-strong);
+}
+
+.news-node {
+  position: relative;
+  display: flex;
+  padding: 9px 0 17px;
+}
+
+/* 스파인 위의 감빛 노드 점 */
+.news-node::before {
+  content: '';
+  position: absolute;
+  left: 89px;
+  top: 17px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.65;
+}
+
+.news-node--featured::before {
+  width: 7px;
+  height: 7px;
+  left: 88px;
+  opacity: 0.9;
+}
+
+.news-node-meta {
+  flex: 0 0 78px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  text-align: right;
+  padding-top: 3px;
+}
+
+.news-node-date {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--ink-45);
+  letter-spacing: 0.03em;
+}
+
+.news-node-meta .news-tag {
+  margin: 0;
+  min-width: 0;
+}
+
+.news-node-body {
+  flex: 1;
+  min-width: 0;
+  padding-left: 26px;
+}
+
+.notebook-page .news-node-text {
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.74rem;
+  line-height: 1.65;
+  color: var(--ink-70);
+  margin: 0;
+}
+
+/* 스크롤 등장 모션 */
+@media (prefers-reduced-motion: no-preference) {
+  .news-node.reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .news-node.reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Featured 뉴스 카드 ── */
 .news-card {
   position: relative;
   border: 1px solid var(--border-letter);
   background: rgba(255, 255, 255, 0.5);
-  padding: 14px 16px;
+  padding: 15px 18px;
 }
 
 /* 편지지 이중선 테두리의 안쪽 선 */
@@ -347,26 +455,6 @@ img {
   bottom: 4px;
   border: 0.5px solid var(--border-letter-faint);
   pointer-events: none;
-}
-
-.news-card-top {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 7px;
-}
-
-.news-card-top .news-tag {
-  margin: 0;
-  min-width: 0;
-}
-
-.news-card-date {
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 0.64rem;
-  font-weight: 500;
-  color: var(--ink-45);
-  letter-spacing: 0.03em;
 }
 
 .notebook-page .news-card-title {
@@ -392,66 +480,44 @@ img {
   margin-top: 3px;
 }
 
-/* ── 컴팩트 뉴스 행 ── */
-.news-list .exp-item {
-  padding: 7px 0;
-}
-
-.news-item .exp-date {
-  padding-top: 3px;
-}
-
-.news-list .news-overflow {
-  display: none;
-}
-
-.news-year-panel.expanded .news-list .news-overflow {
-  display: flex;
-}
-
-/* ── 더 보기 토글 ── */
-.news-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 12px;
-  padding: 4px 0;
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--hairline-strong);
-  color: var(--ink-50);
-  font-family: "Source Sans 3", "MaruBuri", sans-serif;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.news-more::after {
-  content: '↓';
-  display: inline-block;
-  font-size: 0.64rem;
-  transition: transform 0.2s ease;
-}
-
-.news-year-panel.expanded .news-more::after {
-  transform: rotate(180deg);
-}
-
-.news-more:hover {
-  color: var(--ink-800);
-  border-bottom-color: var(--ink-40);
-}
-
+/* ── 타임라인 모바일 ── */
 @media (max-width: 640px) {
-  .news-featured {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  .news-timeline::before {
+    left: 3px;
+    top: 6px;
+    bottom: 6px;
   }
 
-  #news .exp-date {
-    flex: 0 0 70px;
+  .news-node {
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px 0 14px 20px;
+  }
+
+  .news-node::before {
+    left: 1px;
+    top: 14px;
+  }
+
+  .news-node--featured::before {
+    left: 0;
+  }
+
+  .news-node-meta {
+    flex: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    padding-top: 0;
+  }
+
+  .news-node-body {
+    padding-left: 0;
+  }
+
+  .news-year-num {
+    font-size: 1.4rem;
   }
 }
 
