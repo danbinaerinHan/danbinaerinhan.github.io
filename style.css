@@ -34,12 +34,20 @@
   --ink-40: rgba(60, 50, 40, 0.4);
   --ink-30: rgba(60, 50, 40, 0.3);
   --ink-20: rgba(60, 50, 40, 0.2);
+  --ink-10: rgba(60, 50, 40, 0.1);
+  --ink-06: rgba(60, 50, 40, 0.06);
   --hairline-strong: rgba(60, 50, 40, 0.15);
   --hairline: rgba(60, 50, 40, 0.08);
   --hairline-faint: rgba(60, 50, 40, 0.05);
   /* 편지지 이중선 테두리 */
   --border-letter: rgba(160, 140, 110, 0.22);
   --border-letter-faint: rgba(160, 140, 110, 0.15);
+  /* 면(surface) */
+  --panel-bg: rgba(255, 255, 255, 0.75);
+  --panel-border: rgba(255, 255, 255, 0.7);
+  --panel-bg-soft: rgba(255, 255, 255, 0.45);
+  --card-bg: rgba(255, 255, 255, 0.5);
+  --overlay-bg: rgba(248, 244, 238, 0.97);
   --text-dark: var(--ink-900);
   --text-secondary: var(--ink-60);
   --line-height: 31px;
@@ -47,6 +55,42 @@
   --accent: #b5512c;
   --accent-deep: #913e1f;
   --accent-soft: rgba(181, 81, 44, 0.1);
+  color-scheme: light;
+}
+
+/* ── 먹빛(墨) 다크모드 — 밤의 한지 ── */
+:root[data-theme="dark"] {
+  --ink-900: #efe8da;
+  --ink-800: #e2dac9;
+  --ink-700: #cfc5b2;
+  --ink-85: rgba(235, 227, 210, 0.88);
+  --ink-75: rgba(235, 227, 210, 0.78);
+  --ink-70: rgba(235, 227, 210, 0.72);
+  --ink-60: rgba(235, 227, 210, 0.62);
+  --ink-55: rgba(235, 227, 210, 0.56);
+  --ink-50: rgba(235, 227, 210, 0.5);
+  --ink-45: rgba(235, 227, 210, 0.45);
+  --ink-40: rgba(235, 227, 210, 0.4);
+  --ink-30: rgba(235, 227, 210, 0.3);
+  --ink-20: rgba(235, 227, 210, 0.2);
+  --ink-10: rgba(235, 227, 210, 0.12);
+  --ink-06: rgba(235, 227, 210, 0.08);
+  --hairline-strong: rgba(235, 227, 210, 0.18);
+  --hairline: rgba(235, 227, 210, 0.1);
+  --hairline-faint: rgba(235, 227, 210, 0.06);
+  --border-letter: rgba(205, 180, 140, 0.28);
+  --border-letter-faint: rgba(205, 180, 140, 0.16);
+  --panel-bg: rgba(30, 25, 21, 0.72);
+  --panel-border: rgba(255, 255, 255, 0.05);
+  --panel-bg-soft: rgba(24, 20, 17, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --overlay-bg: rgba(22, 18, 15, 0.97);
+  /* 감빛은 어두운 종이 위에서 한 단계 밝게 */
+  --accent: #d26a3f;
+  --accent-deep: #e08055;
+  --accent-soft: rgba(210, 106, 63, 0.16);
+  color-scheme: dark;
+  background: #1b1713; /* 캔버스 (모바일 포함) */
 }
 
 /* ========================================
@@ -439,7 +483,7 @@ img {
 .news-card {
   position: relative;
   border: 1px solid var(--border-letter);
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--card-bg);
   padding: 15px 18px;
 }
 
@@ -604,7 +648,7 @@ img {
 }
 
 .pdf-btn:hover {
-  background: rgba(60, 50, 40, 0.06);
+  background: var(--ink-06);
   color: var(--ink-800);
   border-color: var(--ink-30);
   transform: none;
@@ -1045,7 +1089,7 @@ img {
   right: 0;
   bottom: 0;
   z-index: 2000;
-  background: rgba(248, 244, 238, 0.97);
+  background: var(--overlay-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   display: flex;
@@ -1276,7 +1320,7 @@ img {
 .ip-progress-bar {
   flex: 1;
   height: 4px;
-  background: rgba(60, 50, 40, 0.1);
+  background: var(--ink-10);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -1358,7 +1402,7 @@ img {
 }
 
 .ip-mute-btn:hover {
-  background: rgba(60, 50, 40, 0.06);
+  background: var(--ink-06);
 }
 
 /* Loading bar */
@@ -1430,4 +1474,87 @@ img {
   .ip-channel-name-en {
     display: none;
   }
+}
+
+/* ========================================
+   먹빛 다크모드 — 컴포넌트 보정
+   (토큰으로 못 덮는 하드코딩 색상들)
+======================================== */
+:root[data-theme="dark"] .contact-email,
+:root[data-theme="dark"] .email-sep {
+  color: rgba(205, 180, 140, 0.55);
+}
+
+:root[data-theme="dark"] .copy-email {
+  text-decoration-color: rgba(205, 180, 140, 0.4);
+}
+
+:root[data-theme="dark"] .cover-media .social-icons .icon {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--ink-60);
+}
+
+:root[data-theme="dark"] .cover-media .social-icons .icon:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--ink-900);
+}
+
+:root[data-theme="dark"] .notebook-tab:hover {
+  border-left-color: rgba(235, 227, 210, 0.3);
+}
+
+:root[data-theme="dark"] .special-play-btn {
+  color: rgba(205, 175, 135, 0.65);
+}
+
+:root[data-theme="dark"] .special-play-btn:hover {
+  color: rgba(228, 198, 158, 0.9);
+  border-left-color: rgba(228, 198, 158, 0.4);
+}
+
+:root[data-theme="dark"] .paper-venue strong {
+  color: var(--accent);
+}
+
+:root[data-theme="dark"] .notebook-page a {
+  text-decoration-color: rgba(210, 106, 63, 0.4);
+}
+
+:root[data-theme="dark"] .notebook-page a:hover {
+  text-decoration-color: rgba(224, 128, 85, 0.7);
+}
+
+/* 악기 플레이어 오버레이 */
+:root[data-theme="dark"] .ip-hotspot {
+  background: rgba(38, 32, 27, 0.7);
+}
+
+:root[data-theme="dark"] .ip-hotspot:hover {
+  background: rgba(50, 42, 35, 0.9);
+}
+
+:root[data-theme="dark"] .ip-hotspot.muted {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme="dark"] .ip-btn,
+:root[data-theme="dark"] .ip-channel {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* 삼현육각 선화(線畫) — 어두운 배경에선 밝은 선으로 반전 */
+:root[data-theme="dark"] .ip-svg-img,
+:root[data-theme="dark"] #dandelion-decor {
+  mix-blend-mode: screen;
+  filter: invert(0.88) sepia(0.15);
+}
+
+:root[data-theme="dark"] #dandelion-decor {
+  opacity: 0.3;
+}
+
+:root[data-theme="dark"] #dandelion-label {
+  color: rgba(235, 227, 210, 0.9);
+  background: rgba(38, 32, 27, 0.94);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }

@@ -15,16 +15,29 @@
   document.body.appendChild(container);
 
   // 오방색 (비단 배경과 동일한 톤)
-  var colors = [
+  var LIGHT_COLORS = [
     'rgba(210, 60, 60, 0.35)',
     'rgba(50, 80, 180, 0.35)',
     'rgba(200, 155, 30, 0.35)',
     'rgba(70, 55, 40, 0.3)',
     'rgba(110, 80, 60, 0.3)',
   ];
+  // 먹빛 다크모드 — 어두운 종이 위 달빛 오방색
+  var DARK_COLORS = [
+    'rgba(235, 120, 110, 0.4)',
+    'rgba(130, 160, 235, 0.4)',
+    'rgba(230, 195, 95, 0.4)',
+    'rgba(235, 227, 210, 0.3)',
+    'rgba(205, 180, 140, 0.35)',
+  ];
+
+  function colorsForTheme() {
+    return document.documentElement.dataset.theme === 'dark' ? DARK_COLORS : LIGHT_COLORS;
+  }
 
   function createDrop(x, y) {
     var drop = document.createElement('div');
+    var colors = colorsForTheme();
     var color = colors[Math.floor(Math.random() * colors.length)];
     var size = 2.5 + Math.random() * 2.5;
 
