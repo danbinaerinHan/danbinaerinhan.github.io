@@ -60,29 +60,6 @@
   min-height: calc(100vh - 160px);
 }
 
-/* 편지지 이중선 테두리 — 바깥선(연) + 안쪽선(진) */
-.notebook-page::before {
-  content: '';
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
-  border: 0.5px solid var(--border-letter-faint);
-  pointer-events: none;
-}
-
-.notebook-page::after {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  border: 1px solid var(--border-letter);
-  pointer-events: none;
-}
-
 /* 왼쪽 사이드바 컨테이너 — 본문과 통합 */
 .sidebar-nav {
   width: 150px;

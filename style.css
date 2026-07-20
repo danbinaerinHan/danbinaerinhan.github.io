@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
 /* Pretendard — 모던 한글 본문 서체 (가변, 동적 서브셋) */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 
@@ -804,47 +803,16 @@ img {
   padding-top: 15px;
 }
 
-.gallery-card {
+.notebook-page .gallery-card {
   text-decoration: none;
   color: inherit;
   display: block;
   position: relative;
-  padding-top: 18px;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
-
-.gallery-card:nth-child(4n+1) { transform: rotate(-2deg); }
-.gallery-card:nth-child(4n+2) { transform: rotate(1.5deg); }
-.gallery-card:nth-child(4n+3) { transform: rotate(-1deg); }
-.gallery-card:nth-child(4n+4) { transform: rotate(2.5deg); }
 
 .gallery-card:hover {
-  transform: rotate(0deg) scale(1.03);
-  z-index: 10;
-}
-
-.gallery-card::before {
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 20px;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
-  background: linear-gradient(180deg, rgba(213, 232, 247, 0.85) 0%, rgba(184, 212, 232, 0.75) 100%);
-  z-index: 10;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(93, 109, 126, 0.2);
-}
-
-.gallery-card:nth-child(3n+2)::before {
-  background: linear-gradient(180deg, rgba(224, 230, 237, 0.85) 0%, rgba(212, 226, 236, 0.75) 100%);
-  transform: translateX(-50%) rotate(2deg);
-}
-
-.gallery-card:nth-child(3n+3)::before {
-  background: linear-gradient(180deg, rgba(226, 224, 236, 0.85) 0%, rgba(212, 210, 224, 0.75) 100%);
-  transform: translateX(-50%) rotate(-1deg);
+  transform: translateY(-4px);
 }
 
 .gallery-card img {
@@ -852,18 +820,23 @@ img {
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 6px;
   display: block;
-  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.2);
-  border: 4px solid #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.25s ease;
+}
+
+.gallery-card:hover img {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
 }
 
 .gallery-card-title {
   margin-top: 10px;
   font-weight: 600;
-  color: var(--text-dark);
-  font-size: 0.9rem;
-  font-family: "Handlee", "MaruBuri", "NanumSquare", sans-serif;
+  color: var(--ink-800);
+  font-size: 0.72rem;
+  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
+  letter-spacing: 0.01em;
   text-align: center;
 }
 
@@ -878,7 +851,6 @@ img {
 }
 
 .gallery-grid--two .gallery-card {
-  padding-top: 0;
   transform: none;
 }
 
@@ -886,19 +858,14 @@ img {
   transform: none;
 }
 
-.gallery-grid--two .gallery-card::before {
-  display: none;
-}
-
 .gallery-grid--two .gallery-card img {
   width: 100%;
   height: auto;
   aspect-ratio: auto;
   object-fit: contain;
-  border-radius: 3px;
+  border-radius: 6px;
   display: block;
-  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.12);
-  border: 3px solid #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .gallery-back {
@@ -993,11 +960,6 @@ img {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 30px 20px;
-  }
-
-  .gallery-card::before {
-    width: 40px;
-    height: 16px;
   }
 }
 
