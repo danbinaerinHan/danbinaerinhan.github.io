@@ -3,7 +3,7 @@
    - 한국 전통 악보에서 영감받은 디자인
 ======================================== */
 
-/* Google Fonts - Spectral (제목) + Source Sans 3 (본문) */
+/* Google Fonts - Spectral (제목) · 본문은 Pretendard (style.css에서 로드) */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap');
 
 /* 배경 - 한지 느낌 CSS 정적 배경 */
@@ -112,7 +112,7 @@
 }
 
 .header-keywords span {
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
   font-size: 0.6rem;
   font-weight: 500;
   color: var(--ink-50);
@@ -126,7 +126,7 @@
   background: transparent;
   border-radius: 0;
   display: block;
-  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--ink-45);
@@ -153,7 +153,7 @@
 
 /* 본문 타이포그래피 */
 .notebook-page {
-  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
   font-size: 0.8rem;
   line-height: 1.7;
   color: var(--ink-800);
@@ -212,7 +212,7 @@
 }
 
 .notebook-page h3 {
-  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: #4a3f35;
@@ -296,7 +296,7 @@
   padding: 10px 0;
   border-bottom: 1px solid rgba(60, 50, 40, 0.1);
   margin: 0;
-  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, "MaruBuri", sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--ink-55);
