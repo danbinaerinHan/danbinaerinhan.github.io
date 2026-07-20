@@ -52,12 +52,35 @@
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 50px 60px 50px 60px;
+  padding: 58px 68px 58px 68px;
   border-radius: 0;
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
   position: relative;
   min-height: calc(100vh - 160px);
+}
+
+/* 편지지 이중선 테두리 — 바깥선(연) + 안쪽선(진) */
+.notebook-page::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  border: 0.5px solid var(--border-letter-faint);
+  pointer-events: none;
+}
+
+.notebook-page::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid var(--border-letter);
+  pointer-events: none;
 }
 
 /* 왼쪽 사이드바 컨테이너 — 본문과 통합 */
@@ -83,18 +106,32 @@
 .header-keywords {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 12px;
-  margin-top: 6px;
-  margin-bottom: 1.2em;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 1.4em;
 }
 
+/* 정간 셀을 닮은 헤어라인 칩 */
 .header-keywords span {
   font-family: "Pretendard Variable", Pretendard, sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.56rem;
   font-weight: 500;
   color: var(--ink-50);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 2px;
+}
+
+/* 이름 아래 병기 — EN 페이지엔 한글, KO 페이지엔 영문 */
+.name-sub {
+  font-family: "Spectral", "MaruBuri", serif;
+  font-size: 0.72rem;
+  color: var(--ink-45);
+  letter-spacing: 0.08em;
+  margin: 2px 0 0;
+  line-height: 1.4;
 }
 
 /* 개별 탭 */
@@ -152,9 +189,9 @@
   font-weight: 600;
   color: var(--ink-900);
   letter-spacing: 0.01em;
-  margin-bottom: 1em;
-  margin-top: 2.5em;
-  padding-bottom: 0.4em;
+  margin-bottom: 1.1em;
+  margin-top: 3em;
+  padding-bottom: 0.45em;
   border-bottom: 1px solid var(--hairline-strong);
 }
 
@@ -181,7 +218,7 @@
 
 /* 섹션 간 구분 */
 .notebook-page section {
-  margin-bottom: 3.5em;
+  margin-bottom: 4.2em;
 }
 
 .notebook-page section:last-child {
@@ -206,8 +243,9 @@
 /* Home 페이지 소개 텍스트 */
 .notebook-page .intro-text {
   font-size: 0.78rem;
-  line-height: 1.6;
-  margin-bottom: 0.5em;
+  line-height: 1.72;
+  margin-bottom: 0.7em;
+  max-width: 46em;
 }
 
 /* 사진 아래 소셜 아이콘 */
