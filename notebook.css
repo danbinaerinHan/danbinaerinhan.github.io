@@ -6,27 +6,51 @@
 /* Google Fonts - Spectral (제목) + Source Sans 3 (본문) */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap');
 
-/* 배경 - 청자(靑瓷)빛 한지 느낌 CSS 정적 배경 */
+/* 배경 - 청자(靑瓷) ↔ 베이지 사이를 천천히 오가는 한지빛 배경.
+   @property로 색 변수를 타입 지정해 그라데이션 색을 매끄럽게 보간한다. */
+@property --paper-a { syntax: "<color>"; inherits: false; initial-value: rgb(233, 240, 237); }
+@property --paper-b { syntax: "<color>"; inherits: false; initial-value: rgb(225, 234, 229); }
+@property --paper-c { syntax: "<color>"; inherits: false; initial-value: rgb(217, 229, 223); }
+
 .notebook-body {
   background:
-    /* 수묵 번짐 — 은은한 청자빛 잉크워시 패치 */
-    radial-gradient(ellipse 420px 180px at 8% 15%, rgba(140, 175, 165, 0.09) 0%, transparent 70%),
-    radial-gradient(ellipse 350px 200px at 85% 35%, rgba(150, 180, 168, 0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 300px 160px at 25% 75%, rgba(145, 178, 166, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 380px 150px at 70% 85%, rgba(150, 180, 170, 0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 280px 200px at 50% 50%, rgba(155, 182, 172, 0.05) 0%, transparent 70%),
-    /* 청자빛 기본 그라데이션 */
-    linear-gradient(
-      180deg,
-      rgb(233, 240, 237) 0%,
-      rgb(225, 234, 229) 45%,
-      rgb(217, 229, 223) 100%
-    );
+    /* 수묵 번짐 — 중성 잉크워시 패치 (두 색 위에서 모두 자연스럽게) */
+    radial-gradient(ellipse 420px 180px at 8% 15%, rgba(172, 176, 170, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 350px 200px at 85% 35%, rgba(172, 176, 170, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 300px 160px at 25% 75%, rgba(172, 176, 170, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 380px 150px at 70% 85%, rgba(172, 176, 170, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 280px 200px at 50% 50%, rgba(172, 176, 170, 0.04) 0%, transparent 70%),
+    /* 종이 기본 그라데이션 — 색은 아래 애니메이션이 몰아준다.
+       @property 미지원 브라우저에선 fallback(정적 청자색)으로 안전하게 표시 */
+    linear-gradient(180deg,
+      var(--paper-a, rgb(233, 240, 237)) 0%,
+      var(--paper-b, rgb(225, 234, 229)) 45%,
+      var(--paper-c, rgb(217, 229, 223)) 100%);
   min-height: 100vh;
+  animation: paper-drift 48s ease-in-out infinite;
 }
 
-/* 먹빛 다크모드 — 밤의 한지: 짙은 먹색 종이 + 달빛 잉크워시 */
+/* 청자(0%) → 베이지(50%) → 청자(100%) 사이를 은은하게 왕복 */
+@keyframes paper-drift {
+  0%, 100% {
+    --paper-a: rgb(233, 240, 237);
+    --paper-b: rgb(225, 234, 229);
+    --paper-c: rgb(217, 229, 223);
+  }
+  50% {
+    --paper-a: rgb(248, 244, 238);
+    --paper-b: rgb(244, 240, 232);
+    --paper-c: rgb(240, 236, 228);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notebook-body { animation: none; }
+}
+
+/* 먹빛 다크모드 — 밤의 한지: 짙은 먹색 종이 + 달빛 잉크워시 (드리프트 없음) */
 :root[data-theme="dark"] .notebook-body {
+  animation: none;
   background:
     radial-gradient(ellipse 420px 180px at 8% 15%, rgba(255, 248, 235, 0.05) 0%, transparent 70%),
     radial-gradient(ellipse 350px 200px at 85% 35%, rgba(255, 248, 235, 0.04) 0%, transparent 70%),
