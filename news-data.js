@@ -230,8 +230,8 @@ window.NEWS_ITEMS = [
     id: "sogang-thesis-award",
     date: "2024-01-22",
     category: "award",
-    en: "I received an award for <strong>outstanding paper</strong> at the '2023 Sogang University Graduate School Excellent Thesis Competition'. <a href=\"https://www.sogang.ac.kr/front/boardview.do?pkid=541197&currentPage=1&searchField=ALL&siteGubun=1&menuGubun=1&bbsConfigFK=143&searchLowItem=ALL&searchValue=\">link1</a> <a href=\"http://creative.sogang.ac.kr/%EC%84%9D%EC%82%AC%EA%B3%BC%EC%A0%95-%ED%95%9C%EB%8B%A8%EB%B9%84%EB%82%B4%EB%A6%B0-%EB%B3%B8%EA%B5%90-%EC%A0%9C2%ED%9A%8C-%EB%8C%80%ED%95%99%EC%9B%90%EC%83%9D-%EC%9A%B0%EC%88%98%EB%85%BC%EB%AC%B8/\">link2</a>",
-    ko: "'2023 서강대학교 대학원생 우수논문 공모전'에서 <strong>우수논문상</strong>을 수상했습니다. <a href=\"https://www.sogang.ac.kr/front/boardview.do?pkid=541197&currentPage=1&searchField=ALL&siteGubun=1&menuGubun=1&bbsConfigFK=143&searchLowItem=ALL&searchValue=\">링크1</a> <a href=\"http://creative.sogang.ac.kr/%EC%84%9D%EC%82%AC%EA%B3%BC%EC%A0%95-%ED%95%9C%EB%8B%A8%EB%B9%84%EB%82%B4%EB%A6%B0-%EB%B3%B8%EA%B5%90-%EC%A0%9C2%ED%9A%8C-%EB%8C%80%ED%95%99%EC%9B%90%EC%83%9D-%EC%9A%B0%EC%88%98%EB%85%BC%EB%AC%B8/\">링크2</a>"
+    en: "I received an award for <strong>outstanding paper</strong> at the '2023 Sogang University Graduate School Excellent Thesis Competition'. <a href=\"https://www.hani.co.kr/arti/economy/biznews/1179625.html\">link1</a> <a href=\"http://creative.sogang.ac.kr/%EC%84%9D%EC%82%AC%EA%B3%BC%EC%A0%95-%ED%95%9C%EB%8B%A8%EB%B9%84%EB%82%B4%EB%A6%B0-%EB%B3%B8%EA%B5%90-%EC%A0%9C2%ED%9A%8C-%EB%8C%80%ED%95%99%EC%9B%90%EC%83%9D-%EC%9A%B0%EC%88%98%EB%85%BC%EB%AC%B8/\">link2</a>",
+    ko: "'2023 서강대학교 대학원생 우수논문 공모전'에서 <strong>우수논문상</strong>을 수상했습니다. <a href=\"https://www.hani.co.kr/arti/economy/biznews/1179625.html\">링크1</a> <a href=\"http://creative.sogang.ac.kr/%EC%84%9D%EC%82%AC%EA%B3%BC%EC%A0%95-%ED%95%9C%EB%8B%A8%EB%B9%84%EB%82%B4%EB%A6%B0-%EB%B3%B8%EA%B5%90-%EC%A0%9C2%ED%9A%8C-%EB%8C%80%ED%95%99%EC%9B%90%EC%83%9D-%EC%9A%B0%EC%88%98%EB%85%BC%EB%AC%B8/\">링크2</a>"
   },
   {
     id: "masters-graduation",
