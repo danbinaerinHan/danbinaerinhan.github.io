@@ -3,7 +3,7 @@
 // 모든 페이지를 미리 캐시하여 즉시 전환
 // ═══════════════════════════════════════════════════
 (function () {
-  var NAV_PAGES = ['index.html', 'education.html', 'research.html', 'others.html', 'gallery.html'];
+  var NAV_PAGES = ['index.html', 'education.html', 'research.html', 'resources.html', 'others.html', 'gallery.html'];
   var NAV_SET = {};
   NAV_PAGES.forEach(function (p) { NAV_SET[p] = true; });
 

@@ -1559,3 +1559,61 @@ img {
   background: rgba(38, 32, 27, 0.94);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
+
+/* ========================================
+   Resources 페이지 — 데모 · 데이터셋 · 코드
+======================================== */
+.resource-list {
+  padding: 8px 0 4px;
+  margin: 0;
+  list-style: none;
+}
+
+.resource-entry {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.resource-entry:last-child {
+  border-bottom: none;
+}
+
+.resource-title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-900);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+/* 유형 뱃지 — News 카테고리 라벨과 같은 담백한 텍스트 스타일 */
+.resource-badge {
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(181, 81, 44, 0.75);
+}
+
+.resource-desc {
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.74rem;
+  line-height: 1.55;
+  color: var(--ink-60);
+  margin-bottom: 6px;
+}
+
+.resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+:root[data-theme="dark"] .resource-badge {
+  color: var(--accent);
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resources | Danbinaerin Han - Demos & Datasets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive demos, dataset releases, and open-source code from Danbinaerin Han's research on Korean traditional music (Gugak) and Music AI.">
+  <meta name="keywords" content="Danbinaerin Han, demo, dataset, Jeongganbo dataset, Korean folk song, Six Dragons Fly Again, Gugak, Music AI, code">
+  <meta property="og:title" content="Resources | Danbinaerin Han - Demos & Datasets">
+  <meta property="og:description" content="Interactive demos, dataset releases, and open-source code for research on Korean traditional music.">
+  <meta property="og:image" content="https://www.danbinaerin.com/images/figure.png">
+  <meta property="og:url" content="https://www.danbinaerin.com/resources.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.danbinaerin.com/resources.html">
+  <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="notebook.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="images/Haegeum.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body class="notebook-body">
+  <script src="silk-background.js"></script>
+  <!-- 언어 전환 -->
+  <div class="lang-switch">
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+    <a href="index_ko.html" class="lang-toggle" aria-label="Switch language">
+      <i class="fa-solid fa-globe"></i><span class="lang-text">가/A</span>
+    </a>
+  </div>
+
+  <!-- 노트북 컨테이너 -->
+  <div class="notebook">
+    <!-- 왼쪽 사이드바 -->
+    <aside class="sidebar-nav">
+      <nav class="notebook-tabs">
+        <a href="index.html" class="notebook-tab" data-page="home">Home</a>
+        <a href="education.html" class="notebook-tab" data-page="about">About</a>
+        <a href="research.html" class="notebook-tab" data-page="research">Publications</a>
+        <a href="resources.html" class="notebook-tab active" data-page="resources">Resources</a>
+        <a href="others.html" class="notebook-tab" data-page="experience">Experience</a>
+        <a href="gallery.html" class="notebook-tab" data-page="gallery">Gallery</a>
+      </nav>
+      <button class="special-play-btn" id="instrument-play-btn">
+        <span class="play-icon"><i class="fa-solid fa-music"></i></span>
+        Play the Korean Instruments!
+      </button>
+    </aside>
+
+    <!-- 노트 페이지 -->
+    <div class="notebook-page">
+      <!-- 페이지 내용 -->
+      <div class="page-content">
+        <section id="resources">
+          <h2>Resources</h2>
+          <p>Interactive demos, dataset releases, and open-source code from my research on Korean traditional music.</p>
+
+          <div class="research-topic">
+            <h3>Demos</h3>
+            <ul class="resource-list">
+              <li class="resource-entry">
+                <div class="resource-title">Six Dragons Fly Again <span class="resource-badge">demo</span></div>
+                <div class="resource-desc">Interactive site for reviving 15th-century Korean court music with transformers and a novel encoding (ISMIR 2024, Best Paper Award).</div>
+                <div class="resource-links">
+                  <a class="pdf-btn" href="https://www.six-dragons-fly-again.site/" target="_blank" rel="noopener">open demo</a>
+                  <a class="pdf-btn" href="https://arxiv.org/pdf/2408.01096" target="_blank" rel="noopener">paper</a>
+                </div>
+              </li>
+              <li class="resource-entry">
+                <div class="resource-title">Finding Tori — Korean Folk Song Visualization <span class="resource-badge">demo</span></div>
+                <div class="resource-desc">Explore how regional folk-song styles (tori) cluster, from “Finding Tori: Self-Supervised Learning for Analyzing Korean Folk Song” (ISMIR 2023).</div>
+                <div class="resource-links">
+                  <a class="pdf-btn" href="https://danbinaerinhan.github.io/korean-folksong-visualization/" target="_blank" rel="noopener">open demo</a>
+                  <a class="pdf-btn" href="https://arxiv.org/pdf/2308.02249" target="_blank" rel="noopener">paper</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="research-topic">
+            <h3>Datasets</h3>
+            <ul class="resource-list">
+              <li class="resource-entry">
+                <div class="resource-title">Jeong-ak (Jeongganbo) Dataset <span class="resource-badge">dataset</span></div>
+                <div class="resource-desc">Browse and download the dataset for automatic recognition of Jeongganbo music notation (ACM JOCCH, 2025).</div>
+                <div class="resource-links">
+                  <a class="pdf-btn" href="https://danbinaerinhan.github.io/Jeongganbo_dataset/" target="_blank" rel="noopener">open</a>
+                  <a class="pdf-btn" href="https://dl.acm.org/doi/pdf/10.1145/3715159" target="_blank" rel="noopener">paper</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <a class="section-link section-link--footer" href="https://github.com/danbinaerinHan" target="_blank" rel="noopener">See all code on GitHub</a>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">COPYRIGHT © 2025 Danbinaerin Han</footer>
+
+  <script src="ui-block.js"></script>
+  <script src="theme.js"></script>
+  <script src="news-data.js"></script>
+  <script src="news.js"></script>
+  <script src="script.js"></script>
+  <script src="spa-nav.js"></script>
+  <script src="instrument-player.js"></script>
+  <script src="danbi-cursor.js"></script>
+  <button class="mobile-play-btn" id="instrument-play-btn-mobile">
+    <i class="fa-solid fa-music"></i>
+  </button>
+</body>
+</html>
