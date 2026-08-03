@@ -1,8 +1,13 @@
 window.galleryItems = [
   {
     title: 'APE Camp 청년포럼 (2026)',
-    page: 'Galleries/APE cmap 청년포럼/APE Camp.html',
-    thumbnail: 'Galleries/APE cmap 청년포럼/HEE_1486.jpg'
+    page: 'Galleries/APE cmap 청년포럼 (2026)/APE Camp.html',
+    thumbnail: 'Galleries/APE cmap 청년포럼 (2026)/HEE_1486.jpg'
+  },
+  {
+    title: 'Music, Math & Language (2026)',
+    page: 'Galleries/Music, Math & Language/Music Math Language.html',
+    thumbnail: 'Galleries/Music, Math & Language/IMG_5834.jpg'
   },
   {
     title: 'ISMIR in daejeon (2025)',
