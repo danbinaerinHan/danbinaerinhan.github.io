@@ -1,8 +1,8 @@
 window.galleryItems = [
   {
     title: 'APE Camp 청년포럼 (2026)',
-    page: 'Galleries/APE cmap 청년포럼 (2026)/APE Camp.html',
-    thumbnail: 'Galleries/APE cmap 청년포럼 (2026)/HEE_1486.jpg'
+    page: 'Galleries/APE camp 청년포럼 (2026)/APE Camp.html',
+    thumbnail: 'Galleries/APE camp 청년포럼 (2026)/HEE_1486.jpg'
   },
   {
     title: 'Music, Math & Language (2026)',
