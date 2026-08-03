@@ -428,6 +428,28 @@ img {
   opacity: 0.9;
 }
 
+/* 아직 지나지 않은 소식 — 속을 비운 노드 점 */
+.news-node--upcoming::before {
+  box-sizing: border-box;
+  width: 7px;
+  height: 7px;
+  left: 88px;
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  opacity: 0.75;
+}
+
+/* 날짜·카테고리 아래 붙는 조용한 '예정' 라벨 */
+.news-upcoming {
+  font-family: "Source Sans 3", "MaruBuri", sans-serif;
+  font-size: 0.54rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-40);
+  user-select: none;
+}
+
 .news-node-meta {
   flex: 0 0 78px;
   display: flex;
@@ -541,7 +563,8 @@ img {
     top: 14px;
   }
 
-  .news-node--featured::before {
+  .news-node--featured::before,
+  .news-node--upcoming::before {
     left: 0;
   }
 

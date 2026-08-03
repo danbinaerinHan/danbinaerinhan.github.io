@@ -16,9 +16,19 @@
     milestone:   { short: { en: 'note',  ko: '소식' },   full: { en: 'Milestone',   ko: '소식' } }
   };
 
+  var UPCOMING = { en: 'upcoming', ko: '예정' };
+
   function pageLang() {
     var lang = (document.documentElement.lang || 'en').slice(0, 2);
     return lang === 'ko' ? 'ko' : 'en';
+  }
+
+  // 오늘 날짜를 "YYYY-MM-DD"로. item.date와 문자열 비교하면
+  // "2026-09"처럼 월까지만 적힌 항목도 그대로 맞게 갈린다.
+  function todayISO() {
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    var d = new Date();
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
   }
 
   // "2026-07-10" → "07.10", "2025-01" → "01" (연도는 구획 헤더가 담당)
@@ -52,9 +62,13 @@
     return wrap;
   }
 
-  function makeNode(item, lang) {
+  function makeNode(item, lang, today) {
+    var upcoming = item.date > today;
+
     var li = document.createElement('li');
-    li.className = 'news-node' + (item.featured ? ' news-node--featured' : '');
+    li.className = 'news-node' +
+      (item.featured ? ' news-node--featured' : '') +
+      (upcoming ? ' news-node--upcoming' : '');
 
     var meta = document.createElement('div');
     meta.className = 'news-node-meta';
@@ -65,6 +79,12 @@
     time.title = item.date.replace(/-/g, '.');
     meta.appendChild(time);
     meta.appendChild(makeTag(item, lang));
+    if (upcoming) {
+      var flag = document.createElement('span');
+      flag.className = 'news-upcoming';
+      flag.textContent = UPCOMING[lang];
+      meta.appendChild(flag);
+    }
     li.appendChild(meta);
 
     var body = document.createElement('div');
@@ -107,6 +127,7 @@
     if (!toggle || !container) return;
 
     var lang = pageLang();
+    var today = todayISO();
     var items = window.NEWS_ITEMS.slice().sort(function (a, b) {
       return a.date < b.date ? 1 : -1;
     });
@@ -140,7 +161,7 @@
 
       var list = document.createElement('ol');
       list.className = 'news-timeline';
-      byYear[year].forEach(function (it) { list.appendChild(makeNode(it, lang)); });
+      byYear[year].forEach(function (it) { list.appendChild(makeNode(it, lang, today)); });
       block.appendChild(list);
       container.appendChild(block);
       blocks[year] = block;
