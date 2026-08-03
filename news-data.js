@@ -81,8 +81,15 @@ window.NEWS_ITEMS = [
     ko: "한국문화예술위원회 예술기술융합 창의인재교육 APE camp 청년 포럼 연구위원으로 위촉되었습니다."
   },
   {
+    id: "jeongak-dataset-webpage",
+    date: "2025-11-14",
+    category: "milestone",
+    en: "A new webpage has been launched for easy access and download of the <strong>Jeong-ak Dataset</strong>: <a href=\"https://danbinaerinhan.github.io/Jeongganbo_dataset/\">danbinaerinhan.github.io/Jeongganbo_dataset</a>",
+    ko: "<strong>정악 데이터셋</strong>을 쉽게 접근하고 내려받을 수 있는 새 웹페이지를 개설했습니다: <a href=\"https://danbinaerinhan.github.io/Jeongganbo_dataset/\">danbinaerinhan.github.io/Jeongganbo_dataset</a>"
+  },
+  {
     id: "mcst-advisory-committee",
-    date: "2026-01-01",
+    date: "2025-11-10",
     category: "appointment",
     featured: true,
     title: {
@@ -94,13 +101,6 @@ window.NEWS_ITEMS = [
     links: [
       { label: { en: "press release", ko: "보도자료" }, url: "https://www.mcst.go.kr/site/s_notice/press/pressView.jsp?pSeq=22111" }
     ]
-  },
-  {
-    id: "jeongak-dataset-webpage",
-    date: "2025-11-14",
-    category: "milestone",
-    en: "A new webpage has been launched for easy access and download of the <strong>Jeong-ak Dataset</strong>: <a href=\"https://danbinaerinhan.github.io/Jeongganbo_dataset/\">danbinaerinhan.github.io/Jeongganbo_dataset</a>",
-    ko: "<strong>정악 데이터셋</strong>을 쉽게 접근하고 내려받을 수 있는 새 웹페이지를 개설했습니다: <a href=\"https://danbinaerinhan.github.io/Jeongganbo_dataset/\">danbinaerinhan.github.io/Jeongganbo_dataset</a>"
   },
   {
     id: "folk-song-society-2025",
