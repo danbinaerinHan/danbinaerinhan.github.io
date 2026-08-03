@@ -3,6 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const copyEmails = document.querySelectorAll('.copy-email');
   if (copyEmails.length) {
+    // 토스트 문구는 페이지 언어를 따른다 (news.js의 pageLang와 같은 규칙)
+    const lang = (document.documentElement.lang || 'en').slice(0, 2) === 'ko' ? 'ko' : 'en';
+    const COPY_MSG = {
+      ok:   { en: 'Copied!',        ko: '복사되었습니다!' },
+      fail: { en: 'Copy failed',    ko: '복사에 실패했어요' }
+    };
+
     let toastEl = null;
     let toastTimer = null;
 
@@ -38,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(email);
-          showToast('복사되었습니다!');
+          showToast(COPY_MSG.ok[lang]);
           return;
         }
       } catch (_) { /* fall through */ }
-      showToast(fallbackCopy(email) ? '복사되었습니다!' : '복사에 실패했어요');
+      showToast(COPY_MSG[fallbackCopy(email) ? 'ok' : 'fail'][lang]);
     };
 
     copyEmails.forEach((el) => {
