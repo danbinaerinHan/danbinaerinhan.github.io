@@ -75,7 +75,7 @@ window.NEWS_ITEMS = [
   },
   {
     id: "ape-research-fellow",
-    date: "2026-02-11",
+    date: "2026-01-01",
     category: "appointment",
     en: "Appointed as a Youth Forum Research Fellow for the Arts and Technology Convergence Creative Talent Education (APE Camp), organized by the Arts Council Korea.",
     ko: "한국문화예술위원회 예술기술융합 창의인재교육 APE camp 청년 포럼 연구위원으로 위촉되었습니다."
