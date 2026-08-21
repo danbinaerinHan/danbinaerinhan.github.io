@@ -6,6 +6,13 @@
 /* Google Fonts - Spectral (제목) + Source Sans 3 (본문) */
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap');
 
+/* 우상단 고정 컨트롤(.lang-switch: 다크모드·언어 토글) 전용 여백.
+   .lang-switch는 position:fixed라 창을 좁히면 편지 테두리와 본문 위로
+   올라탄다. 패널 전체를 이 높이만큼 내려 항상 겹치지 않게 한다. */
+:root {
+  --topbar-lane: 58px;
+}
+
 /* 배경 - 청자(靑瓷) ↔ 베이지 사이를 천천히 오가는 한지빛 배경.
    @property로 색 변수를 타입 지정해 그라데이션 색을 매끄럽게 보간한다. */
 @property --paper-a { syntax: "<color>"; inherits: false; initial-value: rgb(248, 244, 238); }
@@ -74,8 +81,8 @@
 .notebook {
   position: relative;
   max-width: 1100px;
-  min-height: calc(100vh - 80px);
-  margin: 40px auto;
+  min-height: calc(100vh - var(--topbar-lane) - 40px);
+  margin: var(--topbar-lane) auto 40px;
   display: flex;
   gap: 0;
   padding: 0 40px;
@@ -97,7 +104,7 @@
   border: 1px solid var(--panel-border);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
   position: relative;
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - var(--topbar-lane) - 120px);
 }
 
 /* 편지지 이중선 테두리 — 바깥선(연) + 안쪽선(진) */
@@ -131,7 +138,7 @@
   justify-content: space-between;
   padding: 50px 0 40px;
   flex-shrink: 0;
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - var(--topbar-lane) - 120px);
   border-right: 1px solid var(--hairline);
 }
 
@@ -395,7 +402,7 @@
 ======================================== */
 @media (max-width: 1100px) {
   .notebook {
-    margin: 30px 15px;
+    margin: var(--topbar-lane) 15px 30px;
   }
 
   .sidebar-nav {
@@ -416,13 +423,17 @@
    반응형 - 모바일
 ======================================== */
 @media (max-width: 768px) {
+  :root {
+    --topbar-lane: 52px;
+  }
+
   .notebook-body {
     background: transparent;
   }
 
   .notebook {
-    margin: 0;
-    min-height: 100vh;
+    margin: var(--topbar-lane) 0 0;
+    min-height: calc(100vh - var(--topbar-lane));
     flex-direction: column;
     gap: 0;
     padding: 0;
@@ -443,7 +454,7 @@
     padding: 30px 20px 100px;
     border-radius: 0;
     border: none;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - var(--topbar-lane) - 60px);
     background-image: none;
   }
 
