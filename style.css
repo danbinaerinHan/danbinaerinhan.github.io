@@ -650,6 +650,29 @@ img {
   font-weight: 600;
 }
 
+/* 저자 목록에서 본인 이름 강조 */
+.paper-authors strong {
+  font-weight: 600;
+  color: var(--ink-800);
+}
+
+/* 학회·연도 배지 */
+.venue-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  margin-right: 5px;
+  border: 1px solid var(--hairline);
+  border-radius: 1px;
+  background: var(--ink-06);
+  color: var(--ink-60);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  font-family: "Source Sans 3", sans-serif;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+
 .pdf-btn {
   display: inline-block;
   margin-left: 0;
