@@ -65,7 +65,7 @@ window.NEWS_ITEMS = [
     id: "ksmi2026-poster",
     date: "2026-05-30",
     category: "talk",
-    en: "Poster presentation at the Korean Society of Music Informatics (KSMI). <a href=\"https://music-informatics.kr/conferences/ksmi2026\">link</a>",
+    en: "Poster presentation at the Korean Society for Music Information (KSMI). <a href=\"https://music-informatics.kr/conferences/ksmi2026\">link</a>",
     ko: "한국음악정보학회(KSMI)에서 포스터를 발표합니다. <a href=\"https://music-informatics.kr/conferences/ksmi2026\">링크</a>"
   },
   {
@@ -144,7 +144,7 @@ window.NEWS_ITEMS = [
     id: "ksmi2025-poster",
     date: "2025-04-18",
     category: "talk",
-    en: "Poster presentation at the Korean Society of Music Informatics (KSMI).",
+    en: "Poster presentation at the Korean Society for Music Information (KSMI).",
     ko: "한국음악정보학회(KSMI)에서 포스터를 발표하였습니다."
   },
   {
