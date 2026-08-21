@@ -12,6 +12,16 @@
 // ═══════════════════════════════════════════════════
 window.NEWS_ITEMS = [
   {
+    id: "universe-lalm-benchmark",
+    date: "2026-08-18",
+    category: "paper",
+    en: "<em>UniVerse: Benchmarking and Enhancing LALMs on Culturally Inclusive Low-Resource Music Understanding</em> is out on arXiv. I served as a co-author, reviewing the Korean folk song Q&amp;A data — the benchmark stratifies Korean audio by province and by <em>tori</em> (melodic mode).",
+    ko: "<em>UniVerse: Benchmarking and Enhancing LALMs on Culturally Inclusive Low-Resource Music Understanding</em>가 arXiv에 공개되었습니다. 공저자로 참여해 국악곡 Q&amp;A 데이터를 검수했습니다. 이 벤치마크는 한국 음원을 지역과 토리별로 나누어 평가합니다.",
+    links: [
+      { label: { en: "arXiv", ko: "arXiv" }, url: "https://arxiv.org/abs/2608.17852" }
+    ]
+  },
+  {
     id: "gugak-center-lecture-2026",
     date: "2026-08-13",
     category: "talk",
