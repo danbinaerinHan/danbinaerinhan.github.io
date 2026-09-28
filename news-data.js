@@ -12,6 +12,13 @@
 // ═══════════════════════════════════════════════════
 window.NEWS_ITEMS = [
   {
+    id: "icccm2026-oral",
+    date: "2026-09-22",
+    category: "talk",
+    en: "I gave an oral presentation at <em>ICCCM 2026</em> in Würzburg, Germany. I appreciated the chance to exchange ideas with fellow researchers. <a href=\"https://digital.musicology.org/icccm-2026/\">link</a>",
+    ko: "독일 뷔르츠부르크에서 열린 <em>ICCCM 2026</em>에서 구두 발표를 했습니다. 여러 연구자와 생각을 나눌 수 있어 뜻깊었습니다. <a href=\"https://digital.musicology.org/icccm-2026/\">링크</a>"
+  },
+  {
     id: "universe-lalm-benchmark",
     date: "2026-08-18",
     category: "paper",
@@ -46,13 +53,6 @@ window.NEWS_ITEMS = [
     category: "talk",
     en: "Poster presentation at <em>Music, Mathematics &amp; Language 2026</em>. <a href=\"https://sites.google.com/view/music-math-language-2026/home\">link</a>",
     ko: "<em>Music, Mathematics &amp; Language 2026</em> 학회에서 포스터 발표를 진행했습니다. <a href=\"https://sites.google.com/view/music-math-language-2026/home\">링크</a>"
-  },
-  {
-    id: "icccm2026-oral",
-    date: "2026-06-17",
-    category: "talk",
-    en: "My talk on motif repetition and social function in Korean folk songs has been accepted for oral presentation at <em>ICCCM 2026</em>. <a href=\"https://digital.musicology.org/icccm-2026/\">link</a>",
-    ko: "한국 민요의 모티프 반복과 사회적 기능에 관한 발표가 <em>ICCCM 2026</em> 구두 발표로 채택되었습니다. <a href=\"https://digital.musicology.org/icccm-2026/\">링크</a>"
   },
   {
     id: "ape-youth-forum-2026",
