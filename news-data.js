@@ -12,6 +12,13 @@
 // ═══════════════════════════════════════════════════
 window.NEWS_ITEMS = [
   {
+    id: "mcst-digital-forum-2026-panel",
+    date: "2026-11-17",
+    category: "talk",
+    en: "Joining the panel discussion at the <em>4th Digital Innovation Forum for Culture, Sports and Tourism</em> (Ministry of Culture, Sports and Tourism), in the session \"New Possibilities and Responsibilities for Artistic Creation in the Age of AI: Human-Centered Creation and Responsible Use of AI\" — L Tower, Seoul.",
+    ko: "문화체육관광부 주최 <em>제4회 문화체육관광 디지털혁신 포럼</em>의 'AI 시대, 예술창작의 새로운 가능성과 책임: 인간 중심의 창작과 책임있는 AI 활용' 세션에서 토론 패널로 참여합니다. (서울 엘타워)"
+  },
+  {
     id: "icccm2026-oral",
     date: "2026-09-22",
     category: "talk",
