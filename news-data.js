@@ -12,6 +12,21 @@
 // ═══════════════════════════════════════════════════
 window.NEWS_ITEMS = [
   {
+    id: "gugak-center-journal-umulsai",
+    date: "2026-10-12",
+    category: "paper",
+    featured: true,
+    title: {
+      en: "Umulsai paper accepted to the Journal of the National Gugak Center",
+      ko: "〈우물사이〉 논문 『국악원논문집』 게재 승인"
+    },
+    en: "\"Design and Implementation of Umulsai, a Web-Based Jeongganbo Notation Program: Focusing on National Gugak Center Notational Conventions\" has been accepted to the <em>Journal of the National Gugak Center</em>, Vol. 54, due out at the end of October. It describes how the editor follows the notational conventions of the <em>jeongak</em> scores published by the National Gugak Center. Glad to have it in a Gugak journal.",
+    ko: "'웹 기반 정간보 사보 프로그램 〈우물사이〉의 설계와 구현 ―국립국악원 간행 정악보의 표기 관행을 중심으로―'가 <em>『국악원논문집』</em> 제54집에 게재 승인되었습니다. 10월 말에 발간될 예정입니다. 국립국악원 간행 정악보의 표기 관행을 프로그램에 어떻게 옮겼는지 정리한 글입니다. 국악 학술지에 소개할 수 있어 기쁩니다.",
+    links: [
+      { label: { en: "Umulsai", ko: "우물사이" }, url: "https://www.umulsai.com/" }
+    ]
+  },
+  {
     id: "mcst-digital-forum-2026-panel",
     date: "2026-11-17",
     category: "talk",
