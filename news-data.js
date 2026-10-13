@@ -12,6 +12,20 @@
 // ═══════════════════════════════════════════════════
 window.NEWS_ITEMS = [
   {
+    id: "kmes-winter-2026-discussant",
+    date: "2026-12-04",
+    category: "talk",
+    en: "Serving as a discussant and presenting a poster at the <em>2026 Winter Conference of the Korean Society for Gugak Education</em> (\"Learning, Connecting, Sharing: New Directions in Gugak Education and Living Transmission\"), National Gugak Center Folk Music Division, Namwon. The poster introduces <a href=\"https://www.umulsai.com/\">Umulsai</a>, a web-based <em>jeongganbo</em> notation program.",
+    ko: "<em>2026 한국국악교육학회 동계학술대회</em>('배우고 잇고 나누다: 국악교육과 현장 전승의 새로운 모색')에서 토론을 맡고, 웹 기반 정간보 사보 프로그램 <a href=\"https://www.umulsai.com/\">〈우물사이〉</a>에 관한 포스터를 발표합니다. (국립민속국악원 예음헌)"
+  },
+  {
+    id: "open-circuit-busan-forum-2026",
+    date: "2026-11-21",
+    category: "talk",
+    en: "Joining the open forum \"Shared Knowledge Infrastructure\" at <em>Open Circuit Busan: Art &amp; Tech Practice</em> (Busan Cultural Foundation) as a panelist. <a href=\"https://opencircuit.club/\">link</a>",
+    ko: "부산문화재단 <em>오픈서킷 부산: 아트앤테크 프랙티스</em>의 오픈포럼 「공유 지식 인프라」에 토론자로 참여합니다. <a href=\"https://opencircuit.club/\">링크</a>"
+  },
+  {
     id: "gugak-center-journal-umulsai",
     date: "2026-10-12",
     category: "paper",
