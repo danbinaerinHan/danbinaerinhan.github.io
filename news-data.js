@@ -48,6 +48,28 @@ window.NEWS_ITEMS = [
     ko: "문화체육관광부 주최 <em>제4회 문화체육관광 디지털혁신 포럼</em>의 'AI 시대, 예술창작의 새로운 가능성과 책임: 인간 중심의 창작과 책임있는 AI 활용' 세션에서 토론 패널로 참여합니다. (서울 엘타워)"
   },
   {
+    id: "ismir2026-awards",
+    date: "2026-11-12",
+    category: "award",
+    featured: true,
+    title: {
+      en: "Two awards at ISMIR 2026",
+      ko: "ISMIR 2026 두 개 부문 수상"
+    },
+    en: "\"Pitch Contour Tokenization using VQ-VAE and Its Application on Korean Traditional Music Analysis\", which I co-authored, received a <strong>Best Student Paper Honorable Mention</strong> at <em>ISMIR 2026</em>. I also received the <strong>Best Reviewer Award</strong>.",
+    ko: "공저자로 참여한 'Pitch Contour Tokenization using VQ-VAE and Its Application on Korean Traditional Music Analysis'가 <em>ISMIR 2026</em>에서 <strong>최우수 학생 논문상 장려(Honorable Mention)</strong>를 받았습니다. 저는 <strong>Best Reviewer Award</strong>도 받았습니다.",
+    links: [
+      { label: { en: "paper", ko: "논문" }, url: "https://arxiv.org/abs/2608.10979" }
+    ]
+  },
+  {
+    id: "ismir2026-gugak-vocalset-talk",
+    date: "2026-11-09",
+    category: "talk",
+    en: "Presented \"Gugak-VocalSet: A Multi-Genre Studio-Quality Dataset of Korean Traditional Singing with Sigimsae Annotations\" in Session 2 at <em>ISMIR 2026</em>.",
+    ko: "<em>ISMIR 2026</em> Session 2에서 'Gugak-VocalSet: A Multi-Genre Studio-Quality Dataset of Korean Traditional Singing with Sigimsae Annotations'를 발표했습니다."
+  },
+  {
     id: "icccm2026-oral",
     date: "2026-09-22",
     category: "talk",
