@@ -53,8 +53,8 @@ window.NEWS_ITEMS = [
     category: "award",
     featured: true,
     title: {
-      en: "Two awards at ISMIR 2026",
-      ko: "ISMIR 2026 두 개 부문 수상"
+      en: "Best Student Paper Honorable Mention and Best Reviewer Award at ISMIR 2026",
+      ko: "ISMIR 2026 최우수 학생 논문상 장려 · Best Reviewer Award 수상"
     },
     en: "\"Pitch Contour Tokenization using VQ-VAE and Its Application on Korean Traditional Music Analysis\", which I co-authored, received a <strong>Best Student Paper Honorable Mention</strong> at <em>ISMIR 2026</em>. I also received the <strong>Best Reviewer Award</strong>.",
     ko: "공저자로 참여한 'Pitch Contour Tokenization using VQ-VAE and Its Application on Korean Traditional Music Analysis'가 <em>ISMIR 2026</em>에서 <strong>최우수 학생 논문상 장려(Honorable Mention)</strong>를 받았습니다. 저는 <strong>Best Reviewer Award</strong>도 받았습니다.",
