@@ -27,16 +27,18 @@ window.NEWS_ITEMS = [
   },
   {
     id: "gugak-center-journal-umulsai",
-    date: "2026-10-12",
+    date: "2026-10-30",
     category: "paper",
     featured: true,
     title: {
-      en: "Umulsai paper accepted to the Journal of the National Gugak Center",
-      ko: "〈우물사이〉 논문 『국악원논문집』 게재 승인"
+      en: "Umulsai paper published in the Journal of the National Gugak Center",
+      ko: "〈우물사이〉 논문 『국악원논문집』 제54집 게재"
     },
-    en: "\"Design and Implementation of Umulsai, a Web-Based Jeongganbo Notation Program: Focusing on National Gugak Center Notational Conventions\" has been accepted to the <em>Journal of the National Gugak Center</em>, Vol. 54, due out at the end of October. It describes how the editor follows the notational conventions of the <em>jeongak</em> scores published by the National Gugak Center. Glad to have it in a Gugak journal.",
-    ko: "'웹 기반 정간보 사보 프로그램 〈우물사이〉의 설계와 구현 ―국립국악원 간행 정악보의 표기 관행을 중심으로―'가 <em>『국악원논문집』</em> 제54집에 게재 승인되었습니다. 10월 말에 발간될 예정입니다. 국립국악원 간행 정악보의 표기 관행을 프로그램에 어떻게 옮겼는지 정리한 글입니다. 국악 학술지에 소개할 수 있어 기쁩니다.",
+    en: "\"Design and Implementation of Umulsai, a Web-Based Jeongganbo Notation Program: Focusing on National Gugak Center Notational Conventions\" is out in the <em>Journal of the National Gugak Center</em>, Vol. 54. It divides <em>jeongganbo</em> notation into four layers (duration, pitch, ornament, and page) and explains how the editor follows the conventions of the <em>jeongak</em> scores published by the National Gugak Center. It also reports a survey of 45 Gugak specialists and a preliminary usability study (mean SUS score 78.1). Glad to have it in a Gugak journal.",
+    ko: "'웹 기반 정간보 사보 프로그램 〈우물사이〉의 설계와 구현 ―국립국악원 간행 정악보의 표기 관행을 중심으로―'가 <em>『국악원논문집』</em> 제54집에 실렸습니다. 정간보 표기를 시가·음고·장식·지면의 네 층으로 나누고, 국립국악원 간행 정악보의 표기 관행을 프로그램에 어떻게 옮겼는지 정리한 글입니다. 국악 전공자·교육자·연주자 45명 대상 실태 조사와 예비 사용성 평가(SUS 평균 78.1점) 결과도 함께 담았습니다. 국악 학술지에 소개할 수 있어 기쁩니다.",
     links: [
+      { label: { en: "Paper (PDF)", ko: "논문 PDF" }, url: "https://www.gugak.go.kr/site/inc/file/fileDownload?dirname=/sites/gugak/files/site/20261030&filename=3-12%20%ED%95%9C%EB%8B%A8%EB%B9%84%EB%82%B4%EB%A6%B0.pdf&type=E&boardid=3479" },
+      { label: { en: "Vol. 54", ko: "제54집" }, url: "https://www.gugak.go.kr/site/program/board/basicboard/view?menuid=001003002001&pagesize=10&boardtypeid=10&boardid=49112" },
       { label: { en: "Umulsai", ko: "우물사이" }, url: "https://www.umulsai.com/" }
     ]
   },

@@ -645,6 +645,17 @@ img {
   font-family: "Source Sans 3", sans-serif;
 }
 
+.paper-venue a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--hairline);
+  text-underline-offset: 2px;
+}
+
+.paper-venue a:hover {
+  text-decoration-color: currentColor;
+}
+
 .paper-venue strong {
   color: rgba(180, 80, 40, 0.8);
   font-weight: 600;
